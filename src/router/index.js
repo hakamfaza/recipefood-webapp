@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from '../views/Home';
 import Detail from '../views/Detail';
 import Insert from "../views/Insert";
+import AddRecipe from "../views/AddRecipe";
 
 const router = () => {
   return (
@@ -12,6 +13,7 @@ const router = () => {
           <Route index element ={<Home/>} />  {/*localhost: 3000/ */}
           <Route path=":id" element={<Detail />}/>  {/*localhost: 3000/123 */}
           <Route path="new" element={<Insert />} /> {/*localhost: 3000/new */}
+          <Route path="addrecipe" element={<AddRecipe />} /> {/*localhost: 3000/new */}
         </Route>
       </Routes>
     </BrowserRouter>
