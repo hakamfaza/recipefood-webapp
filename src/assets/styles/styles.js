@@ -58,6 +58,23 @@ const styles = {
     position: 'absolute',
     bottom: '12px',
     textAlign: 'center'
+  },
+  cardContainer: {
+    position: 'relative',
+    borderRadius: '15px'
+  },
+  cardImage: {
+    width: '300px',
+    height: '300px',
+    objectFit: 'cover',
+    borderRadius: '15px'
+  },
+  cardTitle: {
+    position: 'absolute',
+    width: '105px',
+    left: '15px',
+    bottom: '10px',
+    fontWeight: '600'
   }
 };
 
