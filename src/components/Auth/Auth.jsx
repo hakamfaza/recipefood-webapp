@@ -1,10 +1,11 @@
 import React from 'react';
-import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
+import { Form, FormGroup, Label, Input } from 'reactstrap';
 import styles from '../../assets/styles/styles';
 import logo from '../../assets/img/logo.svg';
 import '../../assets/styles/style.css';
 import st from '../../assets/styles/s.module.css';
 import InputAuth from '../Input/Input';
+import ButtonComponent from '../ButtonComponent/ButtonComponent';
 
 const Auth = () => {
   return (
@@ -22,31 +23,31 @@ const Auth = () => {
               Welcome
             </h3>
             <p style={styles.authTxt}>Log in into your exiting account</p>
+            <InputAuth
+              title="E-mail"
+              for="email"
+              id="email"
+              name="email"
+              type="email"
+              placeholder="examplexxx@gmail.com"
+            />
+            <InputAuth
+              title="Password"
+              for="password"
+              id="password"
+              name="password"
+              type="password"
+              placeholder="password"
+            />
             <Form inline>
-              <InputAuth
-                title="E-mail"
-                for="email"
-                id="email"
-                name="email"
-                type="email"
-                placeholder="examplexxx@gmail.com"
-              />
-              <InputAuth
-                title="Password"
-                for="password"
-                id="password"
-                name="password"
-                type="password"
-                placeholder="password"
-              />
               <FormGroup style={(st.check, styles.checkboxAuth)} check>
                 <Label check>
                   <Input type="checkbox" style={styles.check} required /> I
                   agree to terms & conditions
                 </Label>
               </FormGroup>
-              <Button style={styles.buttonSubmit}>Submit</Button>
             </Form>
+            <ButtonComponent title="Submit" />
           </div>
         </div>
       </div>
