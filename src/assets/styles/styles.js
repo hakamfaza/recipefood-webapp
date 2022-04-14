@@ -150,7 +150,12 @@ const styles = {
     display: 'flex'
   },
   check: {
-    backgroundColor: COLORS.secondaryColor
+    accentColor: '#EFC81A'
+    // backgroundColor: '#EFC81A'
+  },
+  textChecbox: {
+    color: '#696F79',
+    fontSize: '14px'
   }
 };
 

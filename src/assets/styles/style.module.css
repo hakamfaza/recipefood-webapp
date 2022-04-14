@@ -1,15 +1,3 @@
 .interFont {
   font-family: 'Inter', sans-serif;
 }
-
-.check:active {
-  border: none;
-}
-
-.check:focus {
-  border: none;
-}
-
-.check::after {
-  border: none;
-}
