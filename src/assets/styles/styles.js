@@ -75,6 +75,76 @@ const styles = {
     left: '15px',
     bottom: '10px',
     fontWeight: '600'
+  },
+  containerAuth: {
+    height: '100vh'
+  },
+  containerAuthLogo: {
+    position: 'relative',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundImage: `linear-gradient(
+    to right bottom,
+    rgba(239, 200, 26, .7),
+    rgba(239, 200, 26, .7)), url("https://s3-alpha-sig.figma.com/img/86b2/055d/76c7e3577554580136d5f65222046a21?Expires=1650844800&Signature=KohSGDqTJy4D1hB~ifM2Auem4N~dRnmCYMHoqrbx6L1hlUp07BtAI2mAJNDwP5b7O1XKW8834TuhSFSWYBRY46tmpVLMr6F~qlOD6fvlOcre4ecae9HFTagCRVWI-NqXFQxE-xi-a9AY6iRUoEwfaBtVKR~XHvd4MBxCg4OTpEYx7u4EaHXbCF08vQYtShxqz2P6OzrQOdAKy3S4V0sysVjkBA2qzxwhn2bCNuSICSP3wllcEcZBWyfVVfKiRLBcnQn-kN39827oMGYTTxDs9oAboyBg66fvENWhPQ6C53tCSl4kTsX6NBODenBO1yqimaCqTdNnE26Lp-9PM4dG4Q__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA")`,
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+    objectFit: 'cover',
+    height: '100vh',
+    width: '50%'
+  },
+  titleLogo: {
+    color: COLORS.primryColor,
+    marginTop: '15px',
+    fontWeight: '500',
+    fontSize: '18px'
+  },
+  auth: {
+    position: 'relative',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '100vh',
+    backgroundColor: COLORS.primryColor
+  },
+  formInput: {
+    width: '48%',
+    textAlign: 'center'
+  },
+  authTitle: {
+    color: COLORS.secondaryColor,
+    fontWeight: 'bold'
+  },
+  authTxt: {
+    color: '#8692A6',
+    margin: '20px 0 30px 0'
+  },
+  txtLabel: {
+    width: '50%',
+    display: 'flex',
+    marginTop: '20px',
+    color: '#696F79',
+    fontWeight: '500'
+  },
+  authInput: {
+    height: '40px'
+  },
+  buttonSubmit: {
+    width: '100%',
+    backgroundColor: COLORS.secondaryColor,
+    height: '40px',
+    border: 'none',
+    marginTop: '30px'
+  },
+  checkboxAuth: {
+    position: 'relative',
+    display: 'flex'
+  },
+  check: {
+    backgroundColor: COLORS.secondaryColor
   }
 };
 
