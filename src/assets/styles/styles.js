@@ -79,6 +79,11 @@ const styles = {
   containerAuth: {
     height: '100vh'
   },
+  positionAuth: {
+    position: 'fixed',
+    height: '100vh',
+    width: '100%'
+  },
   containerAuthLogo: {
     position: 'relative',
     display: 'flex',
@@ -93,7 +98,8 @@ const styles = {
     backgroundSize: 'cover',
     objectFit: 'cover',
     height: '100vh',
-    width: '50%'
+    width: '100%',
+    margin: '0px'
   },
   titleLogo: {
     color: COLORS.primryColor,

@@ -3,19 +3,16 @@ import { Form, FormGroup, Label, Input } from 'reactstrap';
 import InputAuth from '../Input/Input';
 import ButtonComponent from '../ButtonComponent/ButtonComponent';
 import styles from '../../assets/styles/styles';
-import logo from '../../assets/img/logo.svg';
 import '../../assets/styles/style.css';
 import st from '../../assets/styles/style.module.css';
+import AuthJumbotron from '../AuthJumbotron/AuthJumbotron';
 
 const Auth = () => {
   return (
     <div className="container-fluid" style={styles.containerAuth}>
       <div className="row">
-        <div className="col-sm" style={styles.containerAuthLogo}>
-          <img src={logo} alt="Logo" />
-          <h5 style={styles.titleLogo} className="font">
-            Mama Recipe.
-          </h5>
+        <div className="col-sm">
+          <AuthJumbotron></AuthJumbotron>
         </div>
         <div className="col-sm" style={styles.auth}>
           <div style={styles.formInput}>
