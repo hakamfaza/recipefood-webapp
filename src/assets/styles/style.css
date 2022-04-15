@@ -13,13 +13,6 @@
   font-family: airbnb;
 }
 
-input:focus {
-  box-shadow: -1px 4px 16px -10px rgba(0, 0, 0, 0.75) !important;
-  -webkit-box-shadow: -1px 4px 16px -10px rgba(0, 0, 0, 0.75) !important;
-  -moz-box-shadow: -1px 4px 16px -10px rgba(0, 0, 0, 0.75) !important;
-  border: 1px solid #efc81a !important;
-}
-
 .btn-shadow:focus {
   box-shadow: -1px 4px 16px -10px rgba(0, 0, 0, 0.75) !important;
   -webkit-box-shadow: -1px 4px 16px -10px rgba(0, 0, 0, 0.75) !important;

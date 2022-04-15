@@ -206,6 +206,76 @@ const styles = {
     marginTop: '16px',
     fontSize: '13px',
     textDecoration: 'none'
+  },
+  containerHome: {
+    position: 'relative'
+  },
+  bgContent: {
+    height: '100vh',
+    backgroundColor: COLORS.primryColor
+  },
+  bgDecoration: {
+    height: '100vh',
+    backgroundColor: COLORS.secondaryColor
+  },
+  boxAction: {
+    position: 'absolute',
+    top: '200px',
+    left: '100px',
+    justifyContent: 'center',
+    flexDirection: 'row'
+  },
+  content: {
+    width: '100%',
+    display: 'flex',
+    flexDirection: 'column'
+  },
+  titleContent: {
+    fontSize: '55px',
+    color: '#2E266F',
+    width: '80%'
+  },
+  search: {
+    position: 'relative',
+    display: 'flex',
+    alignItems: 'center',
+    width: '100%'
+  },
+  iconSearch: {
+    fontSize: '35px',
+    position: 'absolute',
+    left: '5px',
+    top: '25px'
+  },
+  searchInput: {
+    height: '60px',
+    paddingLeft: '40px',
+    width: '80%',
+    fontSize: '18px',
+    backgroundColor: '#EFEFEF',
+    marginTop: '10px'
+  },
+  decoration: {
+    position: 'relative'
+  },
+  bgVector: {
+    height: '300px',
+    marginLeft: '30px',
+    width: 'auto'
+  },
+  vegetable: {
+    position: 'absolute',
+    left: '20px',
+    top: '-200px',
+    height: '500px',
+    width: 'auto'
+  },
+  foodOne: {
+    position: 'absolute',
+    left: '20px',
+    top: '-100px',
+    height: '500px',
+    width: 'auto'
   }
 };
 

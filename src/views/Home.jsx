@@ -1,19 +1,47 @@
 import React from 'react';
 import NavbarComponent from '../components/Navbar/Navbar';
-import Footer from '../components/Footer/Footer';
-import Card from '../components/Card/Card';
-import Auth from '../components/Auth/Auth';
+import { Input } from 'reactstrap';
+import { BiSearch } from 'react-icons/bi';
+import styles from '../assets/styles/styles';
+
+import bgVector from '../assets/img/bgvector.webp';
+import vegetable from '../assets/img/vegetable.webp';
+import foodOne from '../assets/img/foodone.webp';
 
 const Home = () => {
   return (
     <>
       <NavbarComponent />
-      <h1>Halaman Home</h1>
-      {/* <Card
-        src="https://s3-alpha-sig.figma.com/img/82f1/1a10/572da9a89bc5f8fe0da12c9a18c352e7?Expires=1650844800&Signature=P8q7Bb6s2~uAHfWwZ5Dz2w39agA~TWLvueU-XRVyqDHwkSB54LGik~CBXcXkunmd0ZBkSU3mGQYepeTXBX-zk3EJCcyCSjD380wh83ew4BeYBJk2p6WiKxiaTTYpox2CmMyLmlal7Ohho5ReEp1liXc-tgWbg8LJfZkX~pCq9MgZPdV-zI704mrIaDriAvGfjSODJpFLUjp9Mxr-F37YZ84KjmfcgAObeVwCit2xWcuk4FJeBHsMly7gFEhoOWKKA5u7x0YMzogTVxTu4Y0uC2iwc6dtQcnAwG2NMixGxA5UUzRBK9KqVLeva6vIOBei7cs1tsSOEi9yeaWBXqmFSw__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
-        title="Chicken Kare"
-      /> */}
-      <Auth />
+      <div className="container-fluid" style={styles.containerHome}>
+        <div className="row">
+          <div className="col-sm" style={styles.content} />
+          <div className="col-3" style={styles.bgDecoration} />
+        </div>
+        <div className="container-lg" style={styles.boxAction}>
+          <div className="row">
+            <div className="col" style={styles.content}>
+              <h1 className="font" style={styles.titleContent}>
+                Discover Recipe & Delicious Food
+              </h1>
+              <div style={styles.search}>
+                <BiSearch style={styles.iconSearch} />
+                <Input
+                  className="font"
+                  placeholder="search recipe"
+                  style={styles.searchInput}
+                />
+              </div>
+            </div>
+            <div className="col">
+              <div style={styles.decoration}>
+                <img src={bgVector} alt="vector" style={styles.bgVector} />
+                <img src={vegetable} alt="vegetable" style={styles.vegetable} />
+                <img src={foodOne} alt="Food" style={styles.foodOne} />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       {/* <Footer /> */}
     </>
   );
