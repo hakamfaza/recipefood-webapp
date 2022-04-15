@@ -23,3 +23,16 @@
 .check {
   accent-color: #efc81a !important;
 }
+
+.button {
+  height: 50px;
+  width: 150px;
+  background-color: #efc81a;
+  color: #ffffff;
+  border-radius: 5px;
+  border: none;
+}
+
+.button:hover {
+  background-color: #adadad;
+}

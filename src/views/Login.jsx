@@ -55,9 +55,9 @@ const Login = () => {
                 Forgot Password ?
               </a>
               <p style={styles.txtAuth}>
-                Already have account?{' '}
-                <a style={styles.txtAuthAction} href="/login">
-                  Log in Here
+                Don't have an account{' '}
+                <a style={styles.txtAuthAction} href="/signup">
+                  Sign Up
                 </a>
               </p>
             </Form>

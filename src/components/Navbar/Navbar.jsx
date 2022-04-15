@@ -49,7 +49,7 @@ const NavbarComponent = () => {
             </NavItem>
 
             <NavItem style={{ position: 'absolute', right: '100px' }}>
-              <NavLink href="/auth">
+              <NavLink href="/login">
                 <BiUserCircle style={styles.navIcon}>?</BiUserCircle>
                 Login
               </NavLink>
