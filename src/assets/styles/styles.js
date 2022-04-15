@@ -359,6 +359,128 @@ const styles = {
   },
   mbMedium: {
     marginBottom: '100px'
+  },
+
+  // Style detail page
+  detailContainer: {
+    position: 'relative',
+    width: '70%'
+  },
+  detailImage: {
+    display: 'flex',
+    alignItems: 'center',
+    flexDirection: 'column',
+    marginTop: '70px'
+  },
+  titleDetailRecipe: {
+    color: COLORS.textPrimaryColor,
+    fontWeight: '600'
+  },
+  boxImageDetail: {
+    position: 'relative'
+  },
+  imageRecipe: {
+    width: '650px',
+    height: '400px',
+    objectFit: 'cover',
+    borderRadius: '20px',
+    marginTop: '30px'
+  },
+  boxIcon: {
+    position: 'absolute',
+    bottom: '10px',
+    right: '10px',
+    padding: '5px'
+  },
+  bookmarkIcon: {
+    fontSize: '40px',
+    color: COLORS.primryColor,
+    padding: '5px',
+    backgroundColor: COLORS.secondaryColor,
+    borderRadius: '5px'
+  },
+  likeIcon: {
+    fontSize: '40px',
+    color: COLORS.secondaryColor,
+    padding: '5px',
+    backgroundColor: COLORS.primryColor,
+    borderRadius: '5px',
+    marginLeft: '10px'
+  },
+  containerRecipe: {
+    position: 'relative',
+    marginTop: '50px'
+  },
+  titleRecipe: {
+    color: '#3F3A3A',
+    marginTop: '30px'
+  },
+  playButton: {
+    width: '250px',
+    height: '50px',
+    backgroundColor: COLORS.secondaryColor,
+    fontSize: '24px',
+    color: COLORS.primryColor,
+    border: 'none',
+    borderRadius: '5px',
+    marginTop: '10px',
+    marginLeft: '15px'
+  },
+  containerComment: {
+    marginTop: '100px'
+  },
+  boxComment: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center'
+  },
+  textAreaComment: {
+    backgroundColor: '#F6F5F4',
+    border: 'none',
+    padding: '20px 0 0 20px',
+    fontSize: '20px',
+    minHeight: '200px',
+    maxHeight: '200px',
+    width: '100%'
+  },
+  buttonPost: {
+    marginTop: '50px',
+    width: '300px',
+    height: '40px',
+    backgroundColor: COLORS.secondaryColor,
+    border: 'none',
+    color: COLORS.primryColor,
+    borderRadius: '3px'
+  },
+  boxUserComment: {
+    position: 'relative',
+    marginTop: '30px'
+  },
+  boxCommentUser: {
+    position: 'relative',
+    marginTop: '20px',
+    marginBottom: '200px',
+    display: 'flex',
+    alignItems: 'center'
+  },
+  userComment: {
+    width: '60px',
+    height: '60px',
+    borderRadius: '30px',
+    objectFit: 'cover'
+  },
+  userAndComment: {
+    marginLeft: '10px',
+    display: 'flex',
+    flexDirection: 'column'
+  },
+  titleUser: {
+    marginTop: '15px',
+    position: 'relative',
+    fontWeight: 'bold'
+  },
+  textComment: {
+    marginTop: '-5px'
   }
 };
 

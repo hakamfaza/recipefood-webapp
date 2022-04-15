@@ -6,7 +6,10 @@ import '../../assets/styles/style.css';
 const ButtonComponents = (params) => {
   return (
     <>
-      <Button style={styles.buttonSubmit} className="btn-shadow">
+      <Button
+        style={(styles.buttonSubmit, params.style)}
+        className="btn-shadow"
+      >
         {params.title}
       </Button>
     </>
