@@ -6,7 +6,7 @@ const AuthJumbotron = () => {
   return (
     <div className="row">
       <div className="col-sm" style={styles.containerAuthLogo}>
-        <img src={logo} alt="Logo" />
+        <img src={logo} alt="Logo" style={styles.logo} />
         <h5 style={styles.titleLogo} className="font">
           Mama Recipe.
         </h5>

@@ -5,6 +5,7 @@ import Detail from '../views/Detail';
 import Insert from '../views/Insert';
 import AddRecipe from '../views/AddRecipe';
 import Login from '../views/Login';
+import SignUp from '../views/SignUp';
 
 const router = () => {
   return (
@@ -17,6 +18,8 @@ const router = () => {
           <Route path="addrecipe" element={<AddRecipe />} />{' '}
           {/*localhost: 3000/new */}
           <Route path="login" element={<Login />} />{' '}
+          {/*localhost: 3000/profile */}
+          <Route path="signup" element={<SignUp />} />{' '}
           {/*localhost: 3000/profile */}
         </Route>
       </Routes>

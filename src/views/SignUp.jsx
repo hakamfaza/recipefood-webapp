@@ -7,35 +7,63 @@ import styles from '../assets/styles/styles';
 import '../assets/styles/style.css';
 import checkbox from '../assets/styles/style.module.css';
 
-const Login = () => {
+const SignUp = () => {
   return (
-    <div className="container-fluid">
+    <div className="container-fluid" style={styles.containerSignUp}>
       <div className="row">
         <div className="col-sm">
-          <AuthJumbotron />
+          <div style={styles.positionJumbotron}>
+            <AuthJumbotron />
+          </div>
         </div>
-        <div className="col-sm" style={styles.auth}>
+        <div className="col-sm" style={styles.authSignup}>
           <div style={styles.formInput}>
             <h3 className="font" style={styles.authTitle}>
-              Welcome
+              Let’s Get Started !
             </h3>
-            <p style={styles.authTxt}>Log in into your exiting account</p>
+            <p style={styles.authTxt}>
+              Create new account to access all features
+            </p>
             <Form style={styles.formWidth}>
               <InputAuth
-                title="E-mail"
+                title="Name"
+                for="name"
+                id="name"
+                name="name"
+                type="name"
+                placeholder="Name"
+              />
+              <InputAuth
+                title="Email Adsress"
                 for="email"
                 id="email"
                 name="email"
                 type="email"
-                placeholder="examplexxx@gmail.com"
+                placeholder="Enter email address"
               />
               <InputAuth
-                title="Password"
+                title="Phone Number"
+                for="number"
+                id="number"
+                name="number"
+                type="number"
+                placeholder="08xxxxxxxxxx"
+              />
+              <InputAuth
+                title="Create New Password"
                 for="password"
                 id="password"
                 name="password"
                 type="password"
-                placeholder="password"
+                placeholder="Create New Password"
+              />
+              <InputAuth
+                title="New Password"
+                for="password"
+                id="password"
+                name="password"
+                type="password"
+                placeholder="New Password"
               />
               <Form inline>
                 <FormGroup style={styles.checkboxAuth} check>
@@ -50,10 +78,7 @@ const Login = () => {
                   </Label>
                 </FormGroup>
               </Form>
-              <ButtonComponent title="Submit" />
-              <a style={styles.txtForgotPassword} href="/">
-                Forgot Password ?
-              </a>
+              <ButtonComponent title="Register Account" />
               <p style={styles.txtAuth}>
                 Already have account?{' '}
                 <a style={styles.txtAuthAction} href="/login">
@@ -68,4 +93,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUp;

@@ -101,6 +101,10 @@ const styles = {
     width: '100%',
     margin: '0px'
   },
+  logo: {
+    width: '25%',
+    height: '25%'
+  },
   titleLogo: {
     color: COLORS.primryColor,
     marginTop: '15px',
@@ -110,33 +114,44 @@ const styles = {
   auth: {
     position: 'relative',
     display: 'flex',
-    flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    height: '100vh',
-    backgroundColor: COLORS.primryColor
+    flexDirection: 'column',
+    height: '100vh'
   },
   formInput: {
-    width: '48%',
-    textAlign: 'center'
+    width: '100%',
+    textAlign: 'center',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'column',
+    height: '100%',
+    position: 'absolute',
+    right: '0'
   },
   authTitle: {
     color: COLORS.secondaryColor,
     fontWeight: 'bold'
+  },
+  formWidth: {
+    width: '45%'
   },
   authTxt: {
     color: '#8692A6',
     margin: '20px 0 30px 0'
   },
   txtLabel: {
-    width: '50%',
+    width: '100%',
     display: 'flex',
     marginTop: '20px',
     color: '#696F79',
+    fontSize: '16px',
     fontWeight: '500'
   },
   authInput: {
-    height: '40px'
+    height: '40px',
+    width: '100%'
   },
   buttonSubmit: {
     width: '100%',
@@ -151,11 +166,46 @@ const styles = {
   },
   check: {
     accentColor: '#EFC81A'
-    // backgroundColor: '#EFC81A'
   },
   textChecbox: {
     color: '#696F79',
     fontSize: '14px'
+  },
+  positionJumbotron: {
+    position: 'fixed',
+    width: '50%',
+    height: '100vh',
+    zIndex: '99'
+  },
+  containerSignUp: {
+    position: 'relative',
+    height: '120vh'
+  },
+  authSignup: {
+    position: 'relative',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'column',
+    height: '120vh'
+  },
+  txtAuth: {
+    color: '#8692A6',
+    marginTop: '24px',
+    fontSize: '13px'
+  },
+  txtAuthAction: {
+    fontSize: '13px',
+    textDecoration: 'none',
+    color: COLORS.secondaryColor
+  },
+  txtForgotPassword: {
+    display: 'flex',
+    justifyContent: 'end',
+    color: '#8692A6',
+    marginTop: '16px',
+    fontSize: '13px',
+    textDecoration: 'none'
   }
 };
 
