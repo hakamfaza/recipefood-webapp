@@ -6,6 +6,7 @@ import Insert from '../views/Insert';
 import AddRecipe from '../views/AddRecipe';
 import Login from '../views/Login';
 import SignUp from '../views/SignUp';
+import Profile from '../views/Profile';
 
 const router = () => {
   return (
@@ -18,8 +19,10 @@ const router = () => {
           <Route path="addrecipe" element={<AddRecipe />} />{' '}
           {/*localhost: 3000/new */}
           <Route path="login" element={<Login />} />{' '}
-          {/*localhost: 3000/profile */}
+          {/*localhost: 3000/login */}
           <Route path="signup" element={<SignUp />} />{' '}
+          {/*localhost: 3000/signup */}
+          <Route path="profile" element={<Profile />} />{' '}
           {/*localhost: 3000/profile */}
         </Route>
       </Routes>

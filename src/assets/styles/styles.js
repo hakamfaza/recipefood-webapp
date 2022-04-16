@@ -97,10 +97,50 @@ const styles = {
     position: 'absolute',
     width: '105px',
     left: '25px',
-    color: '#FFFFFF',
+    color: COLORS.primryColor,
     bottom: '10px',
     fontWeight: '600'
   },
+  cardSmall: {
+    position: 'relative',
+    height: '200px',
+    width: '320px',
+    marginRight: '20px'
+  },
+  cardImageSmall: {
+    height: '200px',
+    width: '320px',
+    objectFit: 'cover',
+    borderRadius: '10px'
+  },
+  cardTitleSmall: {
+    position: 'absolute',
+    width: '105px',
+    left: '15px',
+    color: COLORS.primryColor,
+    bottom: '-5px',
+    fontWeight: '500'
+  },
+  boxActionRecipe: {
+    position: 'absolute',
+    bottom: '10px',
+    right: '10px'
+  },
+  editeIconCard: {
+    fontSize: '24px',
+    color: COLORS.secondaryColor,
+    backgroundColor: COLORS.primryColor,
+    marginRight: '10px',
+    padding: '2.5px',
+    borderRadius: '3px'
+  },
+  deleteIcon: {
+    fontSize: '24px',
+    color: COLORS.primryColor,
+    backgroundColor: COLORS.secondaryColor,
+    borderRadius: '3px'
+  },
+
   containerAuth: {
     height: '100vh'
   },
@@ -481,6 +521,65 @@ const styles = {
   },
   textComment: {
     marginTop: '-5px'
+  },
+
+  // Styles Profile
+  profile: {
+    postition: 'relative'
+  },
+  containerProfile: {
+    position: 'relative'
+  },
+  boxUserProfile: {
+    position: 'relative',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: '100px'
+  },
+  userProfile: {
+    position: 'relative',
+    width: '200px',
+    height: '200px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'column'
+  },
+  userImage: {
+    height: '150px',
+    width: '150px',
+    borderRadius: '50%',
+    objectFit: 'cover'
+  },
+  iconLink: {
+    position: 'absolute',
+    bottom: '30px',
+    right: '20px'
+  },
+  editIcon: {
+    fontSize: '20px',
+    color: COLORS.secondaryColor
+  },
+  titleUserProfile: {
+    fontSize: '26px',
+    fontWeight: 'bold'
+  },
+  boxRecipeAction: {
+    marginTop: '80px'
+  },
+  titleRecipeAction: {
+    border: 'none'
+  },
+  boxCardRecipe: {
+    display: 'flex',
+    marginTop: '20px',
+    marginBottom: '100px'
+  },
+  recipeAction: {
+    border: 'none',
+    cursor: 'pointer'
   }
 };
 

@@ -5,7 +5,7 @@ import Navbar from '../components/Navbar/Navbar';
 import { BiLike, BiBookmark } from 'react-icons/bi';
 import { FiPlay } from 'react-icons/fi';
 
-import ButtonComponent from '../components/ButtonComponent/ButtonComponent';
+// import ButtonComponent from '../components/ButtonComponent/ButtonComponent';
 import Footer from '../components/Footer/Footer';
 
 const Detail = () => {

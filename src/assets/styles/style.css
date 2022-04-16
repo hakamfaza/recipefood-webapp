@@ -10,7 +10,7 @@
 }
 
 .font {
-  font-family: airbnb;
+  font-family: airbnb !important;
 }
 
 .btn-shadow:focus {
