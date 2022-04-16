@@ -580,7 +580,49 @@ const styles = {
   recipeAction: {
     border: 'none',
     cursor: 'pointer'
+  },
+
+  // Add Recipe
+  containerAddRecipe: {
+    position: 'relative'
+  },
+  boxAddRecipe: {
+    position: 'relative',
+    marginBottom: '100px',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center'
+  },
+  inputImage: {
+    marginTop: '150px',
+    width: '100%',
+    height: '300px',
+    backgroundColor: '#F6F5F4',
+    borderRadius: '5px'
+  },
+  titleInput: {
+    height: '60px',
+    border: 'none',
+    backgroundColor: '#F6F5F4',
+    borderRadius: '5px',
+    width: '100%',
+    marginTop: '50px',
+    paddingLeft: '20px'
+  },
+  ingredientsInput: {
+    minHeight: '250px',
+    border: 'none',
+    backgroundColor: '#F6F5F4',
+    borderRadius: '10px',
+    width: '100%',
+    marginTop: '50px',
+    paddingLeft: '20px',
+    paddingTop: '20px'
   }
+  // buttonPost: {
+  //   height: '30px',
+
+  // }
 };
 
 export default styles;
