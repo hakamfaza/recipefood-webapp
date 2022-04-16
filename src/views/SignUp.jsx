@@ -78,7 +78,10 @@ const SignUp = () => {
                   </Label>
                 </FormGroup>
               </Form>
-              <ButtonComponent title="Register Account" />
+              <ButtonComponent
+                style={styles.buttonSubmit}
+                title="Register Account"
+              />
               <p style={styles.txtAuth}>
                 Already have account?{' '}
                 <a style={styles.txtAuthAction} href="/login">

@@ -16,6 +16,7 @@ const InputAuth = (params) => {
             type={params.type}
             placeholder={params.placeholder}
             style={styles.authInput}
+            className="input"
             required
           />
         </FormGroup>{' '}

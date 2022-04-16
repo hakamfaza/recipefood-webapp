@@ -31,7 +31,7 @@ const Home = () => {
               <div style={styles.search}>
                 <BiSearch style={styles.iconSearch} />
                 <Input
-                  className="font"
+                  className="font outlineNone"
                   placeholder="search recipe"
                   style={styles.searchInput}
                 />

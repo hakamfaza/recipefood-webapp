@@ -50,7 +50,7 @@ const Login = () => {
                   </Label>
                 </FormGroup>
               </Form>
-              <ButtonComponent title="Submit" />
+              <ButtonComponent style={styles.buttonSubmit} title="Submit" />
               <a style={styles.txtForgotPassword} href="/">
                 Forgot Password ?
               </a>

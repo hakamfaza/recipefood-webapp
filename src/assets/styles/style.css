@@ -33,6 +33,19 @@
   border: none;
 }
 
+.input:focus {
+  box-shadow: -1px 4px 16px -10px rgba(0, 0, 0, 0.75) !important;
+  -webkit-box-shadow: -1px 4px 16px -10px rgba(0, 0, 0, 0.75) !important;
+  -moz-box-shadow: -1px 4px 16px -10px rgba(0, 0, 0, 0.75) !important;
+  border: 1px solid #efc81a !important;
+}
+
 .button:hover {
   background-color: #adadad;
+}
+
+.outlineNone:focus {
+  border: none !important;
+  outline: none;
+  box-shadow: none !important;
 }
