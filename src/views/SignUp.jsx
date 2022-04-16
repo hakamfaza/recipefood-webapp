@@ -1,13 +1,58 @@
-import React from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
 import { Form, FormGroup, Label, Input } from 'reactstrap';
+
 import AuthJumbotron from '../components/AuthJumbotron/AuthJumbotron';
 import InputAuth from '../components/Input/Input';
 import ButtonComponent from '../components/ButtonComponent/ButtonComponent';
+
 import styles from '../assets/styles/styles';
 import '../assets/styles/style.css';
 import checkbox from '../assets/styles/style.module.css';
 
+import user from '../assets/img/user.png';
+
 const SignUp = () => {
+  // set default
+  const [form, setForm] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    password: '',
+    newPassword: ''
+  });
+
+  // when input is typed
+  const onChangeInput = (e, field) => {
+    setForm({
+      ...form,
+      [field]: e.target.value
+    });
+  };
+
+  // when submitted
+  const onSubmit = (e) => {
+    e.preventDefault();
+    if (form.password !== form.newPassword) {
+      alert('password is not the same, please check again');
+    } else {
+      const body = {
+        name: form.name,
+        email: form.email,
+        phone: form.phone,
+        password: form.password
+      };
+      axios
+        .post('http://localhost:4004/register', body, {})
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  };
+
   return (
     <div className="container-fluid" style={styles.containerSignUp}>
       <div className="row">
@@ -24,7 +69,7 @@ const SignUp = () => {
             <p style={styles.authTxt}>
               Create new account to access all features
             </p>
-            <Form style={styles.formWidth}>
+            <Form style={styles.formWidth} onSubmit={(e) => onSubmit(e)}>
               <InputAuth
                 title="Name"
                 for="name"
@@ -32,6 +77,7 @@ const SignUp = () => {
                 name="name"
                 type="name"
                 placeholder="Name"
+                onChange={(e) => onChangeInput(e, 'name')}
               />
               <InputAuth
                 title="Email Adsress"
@@ -40,6 +86,7 @@ const SignUp = () => {
                 name="email"
                 type="email"
                 placeholder="Enter email address"
+                onChange={(e) => onChangeInput(e, 'email')}
               />
               <InputAuth
                 title="Phone Number"
@@ -48,6 +95,7 @@ const SignUp = () => {
                 name="number"
                 type="number"
                 placeholder="08xxxxxxxxxx"
+                onChange={(e) => onChangeInput(e, 'phone')}
               />
               <InputAuth
                 title="Create New Password"
@@ -56,39 +104,39 @@ const SignUp = () => {
                 name="password"
                 type="password"
                 placeholder="Create New Password"
+                onChange={(e) => onChangeInput(e, 'password')}
               />
               <InputAuth
                 title="New Password"
-                for="password"
-                id="password"
-                name="password"
+                for="newpassword"
+                id="newpassword"
+                name="newpassword"
                 type="password"
                 placeholder="New Password"
+                onChange={(e) => onChangeInput(e, 'newPassword')}
               />
-              <Form inline>
-                <FormGroup style={styles.checkboxAuth} check>
-                  <Label style={styles.textChecbox} check>
-                    <Input
-                      type="checkbox"
-                      style={(checkbox.check, styles.check)}
-                      className="check"
-                      required
-                    />{' '}
-                    I agree to terms & conditions
-                  </Label>
-                </FormGroup>
-              </Form>
+              <FormGroup style={styles.checkboxAuth} check>
+                <Label style={styles.textChecbox} check>
+                  <Input
+                    type="checkbox"
+                    style={(checkbox.check, styles.check)}
+                    className="check"
+                    required
+                  />{' '}
+                  I agree to terms & conditions
+                </Label>
+              </FormGroup>
               <ButtonComponent
                 style={styles.buttonSubmit}
                 title="Register Account"
               />
-              <p style={styles.txtAuth}>
-                Already have account?{' '}
-                <a style={styles.txtAuthAction} href="/login">
-                  Log in Here
-                </a>
-              </p>
             </Form>
+            <p style={styles.txtAuth}>
+              Already have account?{' '}
+              <a style={styles.txtAuthAction} href="/login">
+                Log in Here
+              </a>
+            </p>
           </div>
         </div>
       </div>
