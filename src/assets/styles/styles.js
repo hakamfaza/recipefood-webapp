@@ -618,6 +618,18 @@ const styles = {
     marginTop: '50px',
     paddingLeft: '20px',
     paddingTop: '20px'
+  },
+  errPasword: {
+    fontSize: '12px',
+    display: 'none',
+    marginTop: '-12px',
+    color: 'red'
+  },
+  displayErrPasword: {
+    fontSize: '12px',
+    display: 'flex',
+    marginTop: '-12px',
+    color: 'red'
   }
   // buttonPost: {
   //   height: '30px',

@@ -10,7 +10,7 @@ import styles from '../assets/styles/styles';
 import '../assets/styles/style.css';
 import checkbox from '../assets/styles/style.module.css';
 
-import user from '../assets/img/user.png';
+// import user from '../assets/img/user.png';
 
 const SignUp = () => {
   // set default
@@ -29,12 +29,11 @@ const SignUp = () => {
       [field]: e.target.value
     });
   };
-
   // when submitted
   const onSubmit = (e) => {
     e.preventDefault();
     if (form.password !== form.newPassword) {
-      alert('password is not the same, please check again');
+      alert('password is not the same, please check again!');
     } else {
       const body = {
         name: form.name,
@@ -69,7 +68,11 @@ const SignUp = () => {
             <p style={styles.authTxt}>
               Create new account to access all features
             </p>
-            <Form style={styles.formWidth} onSubmit={(e) => onSubmit(e)}>
+            <Form
+              action="/profile"
+              style={styles.formWidth}
+              onSubmit={(e) => onSubmit(e)}
+            >
               <InputAuth
                 title="Name"
                 for="name"
@@ -115,6 +118,16 @@ const SignUp = () => {
                 placeholder="New Password"
                 onChange={(e) => onChangeInput(e, 'newPassword')}
               />
+              {/* <p
+                style={
+                  
+                    ? styles.errPasword
+                    : styles.displayErrPasword
+                }
+                // onSubmit={() => setPasswordMessage(false)}
+              >
+                password is not the same, please check again!
+              </p> */}
               <FormGroup style={styles.checkboxAuth} check>
                 <Label style={styles.textChecbox} check>
                   <Input
