@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Navbar,
   NavbarBrand,
@@ -12,6 +12,8 @@ import { BiUserCircle } from 'react-icons/bi';
 import styles from '../../assets/styles/styles';
 
 const NavbarComponent = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <div>
       <Navbar
@@ -21,12 +23,14 @@ const NavbarComponent = () => {
         expand="md"
         light
       >
-        {/* <NavbarBrand href="/">Mama Recipe</NavbarBrand> */}
-        <NavbarToggler
-          className="me-2"
-          // onClick={function noRefCheck(){}}
-        />
-        <Collapse navbar>
+        {/* <NavbarBrand
+          href="/"
+          style={isOpen ? { } : { display: 'none' }}
+        >
+          Mama Recipe
+        </NavbarBrand> */}
+        <NavbarToggler className="me-2" onClick={() => setIsOpen(!isOpen)} />
+        <Collapse isOpen={isOpen} navbar>
           <Nav
             className="me-auto"
             navbar
@@ -48,7 +52,9 @@ const NavbarComponent = () => {
               </NavLink>
             </NavItem>
 
-            <NavItem style={{ position: 'absolute', right: '100px' }}>
+            <NavItem
+              style={isOpen ? {} : { position: 'absolute', right: '100px' }}
+            >
               <NavLink href="/login">
                 <BiUserCircle style={styles.navIcon}>?</BiUserCircle>
                 Login
