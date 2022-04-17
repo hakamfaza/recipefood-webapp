@@ -121,6 +121,25 @@ const styles = {
     bottom: '-5px',
     fontWeight: '500'
   },
+
+  cardListVidio: {
+    position: 'relative',
+    width: '220px',
+    height: '100px',
+    borderRadius: '5px',
+    marginTop: '20px'
+  },
+  smallVidio: {
+    borderRadius: '5px',
+    position: 'relative'
+  },
+  titleCardVidio: {
+    position: 'relative'
+  },
+  textDate: {
+    fontSize: '10px',
+    color: '#AAAAAA'
+  },
   boxActionRecipe: {
     position: 'absolute',
     bottom: '10px',
@@ -630,11 +649,45 @@ const styles = {
     display: 'flex',
     marginTop: '-12px',
     color: 'red'
-  }
+  },
   // buttonPost: {
   //   height: '30px',
 
-  // }
+  // },
+
+  // style detail vidio
+  vidioContainer: {
+    overflowY: 'hidden'
+  },
+  bgVidio: {
+    backgroundColor: COLORS.secondaryColor,
+    height: '120vh'
+  },
+  containerMainVidio: {
+    position: 'relative',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'column'
+  },
+  mainVidio: {
+    marginTop: '-30px'
+  },
+  titleVidio: {
+    width: '500px'
+  },
+  containerListVidio: {
+    position: 'relative',
+    width: '20%',
+    height: '100vh'
+  },
+  boxListVidio: {
+    marginTop: '80px',
+    display: 'flex',
+    alignItems: 'center',
+    flexDirection: 'column',
+    height: '100%'
+  }
 };
 
 export default styles;
