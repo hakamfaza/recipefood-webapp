@@ -66,7 +66,8 @@ const styles = {
   cardContainer: {
     position: 'relative',
     borderRadius: '15px',
-    marginBottom: '30px'
+    marginBottom: '30px',
+    marginTop: '30px'
   },
   cardImage: {
     width: '300px',
@@ -416,8 +417,9 @@ const styles = {
     width: '100px',
     marginTop: '15px'
   },
-  mtMedium: {
-    marginTop: '50px'
+  boxOfCard: {
+    marginTop: '50px',
+    marginBottom: '100px'
   },
   mbMedium: {
     marginBottom: '100px'

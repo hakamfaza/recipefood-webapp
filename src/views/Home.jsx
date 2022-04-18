@@ -34,7 +34,6 @@ const Home = () => {
     const query = {
       search: searchRecipe.title
     };
-    console.log(query);
     axios
       .get(`${REACT_APP_API_URL}/recipe?search=${query.search}`, {})
       .then((response) => {
@@ -51,25 +50,6 @@ const Home = () => {
       setRecipe(response.data.data);
     });
   }, []);
-
-  useEffect(() => {
-    fetch('');
-  });
-
-  const getId = recipe.map((e, i) => {
-    return e.id;
-  });
-
-  const recip = recipe.map((e, i) => {
-    return e.title;
-  });
-
-  const getTitleRecipe = searchRecipe ? searchRecipe : recip;
-  console.log(getTitleRecipe);
-
-  const imageFood = recipe.map((e) => {
-    return e.image;
-  });
 
   return (
     <>
@@ -167,65 +147,16 @@ const Home = () => {
             Show Recipe
           </h1>
           <div className="container">
-            <div className="row" style={styles.mtMedium}>
-              <div className="col-sm">
-                <Link to={`/item/${getId[0]}`}>
-                  <Card src={imageFood[0]} title={recip[0]} alt={recip[0]} />
-                </Link>
-              </div>
-              <div className="col-sm">
-                <Link to={`/item/${getId[1]}`}>
-                  <Card
-                    src={imageFood[1]}
-                    title={recip[1]}
-                    alt={recip[1]}
-                    href="/"
-                  />
-                </Link>
-              </div>
-              <div className="col-sm">
-                <Link to={`/item/${getId[2]}`}>
-                  <Card
-                    src={imageFood[2]}
-                    title={recip[2]}
-                    alt={recip[2]}
-                    href="/"
-                  />
-                </Link>
-              </div>
-            </div>
-
-            <div className="row" style={styles.mtMedium}>
-              <div className="col-sm">
-                <Link to={`/item/${getId[3]}`}>
-                  <Card
-                    src={imageFood[3]}
-                    title={recip[3]}
-                    alt={recip[3]}
-                    href="/"
-                  />
-                </Link>
-              </div>
-              <div className="col-sm">
-                <Link to={`/item/${getId[4]}`}>
-                  <Card
-                    src={imageFood[4]}
-                    title={recip[4]}
-                    alt={recip[4]}
-                    href="/"
-                  />
-                </Link>
-              </div>
-              <div className="col-sm" style={styles.mbMedium}>
-                <Link to={`/item/${getId[5]}`}>
-                  <Card
-                    src={imageFood[5]}
-                    title={recip[5]}
-                    alt={recip[5]}
-                    href="/11"
-                  />
-                </Link>
-              </div>
+            <div className="row" style={styles.boxOfCard}>
+              {recipe.map((e, i) => {
+                return (
+                  <div className="col-sm" key={i}>
+                    <Link to={`/item/${e.id}`}>
+                      <Card src={e.image} title={e.title} alt={e.title} />
+                    </Link>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
