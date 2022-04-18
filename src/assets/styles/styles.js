@@ -331,6 +331,9 @@ const styles = {
     left: '5px',
     top: '25px'
   },
+  boxSearch: {
+    width: '100%'
+  },
   searchInput: {
     height: '60px',
     paddingLeft: '40px',

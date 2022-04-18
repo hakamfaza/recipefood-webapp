@@ -9,6 +9,7 @@ import ButtonComponent from '../components/ButtonComponent/ButtonComponent';
 import styles from '../assets/styles/styles';
 import '../assets/styles/style.css';
 import checkbox from '../assets/styles/style.module.css';
+import { REACT_APP_API_URL } from '../config/env';
 
 // import user from '../assets/img/user.png';
 
@@ -42,7 +43,7 @@ const SignUp = () => {
         password: form.password
       };
       axios
-        .post('http://localhost:4004/register', body, {})
+        .post(`${REACT_APP_API_URL}/login`, body, {})
         .then((response) => {
           console.log(response);
         })

@@ -7,6 +7,7 @@ import styles from '../assets/styles/styles';
 import '../assets/styles/style.css';
 import checkbox from '../assets/styles/style.module.css';
 import axios from 'axios';
+import { REACT_APP_API_URL } from '../config/env';
 
 // import { REACT_APP_API_HOST } from '../config/env';
 
@@ -24,13 +25,13 @@ const Login = () => {
   };
 
   const onSubmit = (e) => {
-    e.preventDefault(true);
+    e.preventDefault();
     const body = {
       email: form.email,
       password: form.password
     };
     axios
-      .post('http://localhost:4004/login', body, {})
+      .post(`${REACT_APP_API_URL}/login`, body, {})
       .then((response) => {
         if (response.data.status === 'failed') {
           console.log('failed');

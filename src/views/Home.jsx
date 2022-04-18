@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import NavbarComponent from '../components/Navbar/Navbar';
-import { Input } from 'reactstrap';
+import { Input, Form } from 'reactstrap';
 import { BiSearch } from 'react-icons/bi';
 import styles from '../assets/styles/styles';
 import '../assets/styles/style.css';
@@ -13,21 +13,59 @@ import bgVector from '../assets/img/bgvector.webp';
 import vegetable from '../assets/img/vegetable.webp';
 import foodOne from '../assets/img/foodone.webp';
 import axios from 'axios';
+import { Link, useParams } from 'react-router-dom';
+import { REACT_APP_API_URL } from '../config/env';
 
 const Home = () => {
   const [recipe, setRecipe] = useState([]);
+  const [searchRecipe, setSearchRecipe] = useState({
+    title: ''
+  });
+
+  const getRecipe = (e, field) => {
+    setSearchRecipe({
+      ...searchRecipe,
+      [field]: e.target.value
+    });
+  };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    const query = {
+      search: searchRecipe.title
+    };
+    console.log(query);
+    axios
+      .get(`${REACT_APP_API_URL}/recipe?search=${query.search}`, {})
+      .then((response) => {
+        setSearchRecipe(response.data.data);
+        console.log(response.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      }, []);
+  };
 
   useEffect(() => {
-    axios.get('http://localhost:4004/recipe').then((response) => {
-      // console.log(response.data.data);
+    axios.get(`${REACT_APP_API_URL}/recipe`).then((response) => {
       setRecipe(response.data.data);
     });
   }, []);
 
+  useEffect(() => {
+    fetch('');
+  });
+
   const recip = recipe.map((e, i) => {
     return e.title;
   });
-  console.log(recip[0]);
+
+  const getTitleRecipe = searchRecipe ? searchRecipe : recip;
+  console.log(getTitleRecipe);
+
+  const imageFood = recipe.map((e) => {
+    return e.image;
+  });
 
   return (
     <>
@@ -45,11 +83,14 @@ const Home = () => {
               </h1>
               <div style={styles.search}>
                 <BiSearch style={styles.iconSearch} />
-                <Input
-                  className="font outlineNone"
-                  placeholder="search recipe"
-                  style={styles.searchInput}
-                />
+                <Form onSubmit={(e) => onSubmit(e)} style={styles.boxSearch}>
+                  <Input
+                    className="font outlineNone"
+                    placeholder="search recipe"
+                    onChange={(e) => getRecipe(e, 'title')}
+                    style={styles.searchInput}
+                  />
+                </Form>
               </div>
             </div>
             <div className="col">
@@ -77,12 +118,14 @@ const Home = () => {
               />
             </div>
             <div className="col-sm" style={styles.imagePopularContainer}>
-              <CardMedium
-                src="https://s3-alpha-sig.figma.com/img/b704/55ae/6c4d7c1bef2c9e97e8df92d4be8a1d1a?Expires=1650844800&Signature=HlwCLfdHWtZA7ssS3Zo27Gsziiye8wPWDK1qW8vdDugIEN0iA9JkX34T35enJYdhcBxsg~J2RbDGJhMDwaeq-3Z15H1d5KR7IpQmcylteLmaCPdPcDe0GWRlVvneCZXIJb1b~E4Vp0NF4rTpmpiGBUStz36hAVCoA26MnFnOpdnFGI7YrpGhH7yTS~anexY9EYIu5ySVWaZnc1uC4BnAfVtFVbGUTs9c70f8JIKLagNUBIF-OLRQWttHC~UBP0XXokE7oXA8a4dntVkyDaVVevN56au87d0Aeimu6CyT0iD9d-bWV6xuHxqUMyQMCoLBCINZscHQgucEs2VWVmrK3w__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
-                title="King Burger"
-                alt="King Burger"
-                href="/"
-              />
+              <Link to="item/123">
+                <CardMedium
+                  src="https://s3-alpha-sig.figma.com/img/b704/55ae/6c4d7c1bef2c9e97e8df92d4be8a1d1a?Expires=1650844800&Signature=HlwCLfdHWtZA7ssS3Zo27Gsziiye8wPWDK1qW8vdDugIEN0iA9JkX34T35enJYdhcBxsg~J2RbDGJhMDwaeq-3Z15H1d5KR7IpQmcylteLmaCPdPcDe0GWRlVvneCZXIJb1b~E4Vp0NF4rTpmpiGBUStz36hAVCoA26MnFnOpdnFGI7YrpGhH7yTS~anexY9EYIu5ySVWaZnc1uC4BnAfVtFVbGUTs9c70f8JIKLagNUBIF-OLRQWttHC~UBP0XXokE7oXA8a4dntVkyDaVVevN56au87d0Aeimu6CyT0iD9d-bWV6xuHxqUMyQMCoLBCINZscHQgucEs2VWVmrK3w__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
+                  title="King Burger"
+                  alt="King Burger"
+                  // href="/"
+                />
+              </Link>
             </div>
           </div>
         </div>
@@ -125,25 +168,25 @@ const Home = () => {
             <div className="row" style={styles.mtMedium}>
               <div className="col-sm">
                 <Card
-                  src="https://s3-alpha-sig.figma.com/img/82f1/1a10/572da9a89bc5f8fe0da12c9a18c352e7?Expires=1650844800&Signature=P8q7Bb6s2~uAHfWwZ5Dz2w39agA~TWLvueU-XRVyqDHwkSB54LGik~CBXcXkunmd0ZBkSU3mGQYepeTXBX-zk3EJCcyCSjD380wh83ew4BeYBJk2p6WiKxiaTTYpox2CmMyLmlal7Ohho5ReEp1liXc-tgWbg8LJfZkX~pCq9MgZPdV-zI704mrIaDriAvGfjSODJpFLUjp9Mxr-F37YZ84KjmfcgAObeVwCit2xWcuk4FJeBHsMly7gFEhoOWKKA5u7x0YMzogTVxTu4Y0uC2iwc6dtQcnAwG2NMixGxA5UUzRBK9KqVLeva6vIOBei7cs1tsSOEi9yeaWBXqmFSw__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
+                  src={imageFood[0]}
                   title={recip[0]}
-                  alt="Chicken Kare"
+                  alt={recip[0]}
                   href="/"
                 />
               </div>
               <div className="col-sm">
                 <Card
-                  src="https://s3-alpha-sig.figma.com/img/a8f2/635e/cd160da3e1426c3f659218e145224ffc?Expires=1650844800&Signature=AWqVesCc60Bx9-jbZQUCkxJ8F-hHJ6tcvRoEbbbtN1ir4lyqOwUd7B3QsajZZL8HzF~am7NZfx8J2UR3HXcze-WGo21aUQLZHn7xny1vrd6ukJplpZiGxjWEZwQR788HrsGboKK2tRwQvIUiWf10azIYts9rk3LkYU05Ygxdm7aTpsRtVYdiXhvB98wiRXIuRL3eBIpsUbG3qoNZi-HcQWsi6q2HdMtBJ92rBIw4OvE~2OGNM~GJerfG6WZRGMlXmQDx2OwtHrf1Z30djIBZyDOy9aOVNrPlAvaH9qZnjyHuQnFOUKRVtlXqAg1NA9YqQ5MDs6p68ZwsofjnYOOlCQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
-                  title="Bomb Chicken"
-                  alt="Bomb Chicken"
+                  src={imageFood[1]}
+                  title={recip[1]}
+                  alt={recip[1]}
                   href="/"
                 />
               </div>
               <div className="col-sm">
                 <Card
-                  src="https://s3-alpha-sig.figma.com/img/bde4/c043/7c36ec9fa871caac4eb5b3658eea9aaa?Expires=1650844800&Signature=gCc-LO6k1~z8w0--bzkD8V5EdG53KHfcAO68dDd3XmM7Zq85qzc7tIUnMSmBnZTw9peHdcS8CjF0vIhqIiaQbLxadlWoa0jDBrZMk0TEAxSLqCYxYTy430H3k5yEfaDhm2Yg-nk1xySLj3Yz5kD32cM-BJTBTaJcCmyblyWgUfBwNjgWwA3jjdPwOg-V~3jgPlLs4vH66NcXETE9HqVwYYxKiuOwqB9DCbcXSpYvCA5qkJfzZEr0-YxpvrBt2jYXWZCk9~469SXUA4arlK5nwMPTHfhLEocEcuDmqT23w2aw5m3HqyukFwBFHmeiixNpT3I3MqfYOoca8fuTBQ4k-w__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
-                  title="Banana Smothie Pop"
-                  alt="Banana Smothie Pop"
+                  src={imageFood[2]}
+                  title={recip[2]}
+                  alt={recip[2]}
                   href="/"
                 />
               </div>
@@ -152,26 +195,26 @@ const Home = () => {
             <div className="row" style={styles.mtMedium}>
               <div className="col-sm">
                 <Card
-                  src="https://s3-alpha-sig.figma.com/img/72b9/af51/19713936f65f2db089da584640f4b823?Expires=1650844800&Signature=XA8oC-ToCYUoPSBdCQQsPUTm8rofv-pXbkypwa42BM7C8xFx6IhB5rWn56YutTF98bpFZ6a3A6y4JEnBTotUdqj3Gi-N-~9TGSANWOMtQxysQ3U1YAb1aUisM6gVB9Lu8zIj1kqolfKM2~59WPU83dZN2D9EcemYScs~Xygdzftqg8~rJo3t4t99tAoJa4O2fOxoPXdtoHnD9EQ4kjNiqQs3DsG8k5b4NmZDUI21FEl~EtihKRewZoTYeS~JFNaa3rzh7vhhshRoQtC--hrPD~T~Jj5MhLjkeSNiKPo540tR3tD1onhslxHn0GzLIgRWr6u1qwX5VCTRy~-QDrBlWA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
-                  title="Coffe Lava Cake"
-                  alt="Coffe Lava Cake"
+                  src={imageFood[3]}
+                  title={recip[3]}
+                  alt={recip[3]}
                   href="/"
                 />
               </div>
               <div className="col-sm">
                 <Card
-                  src="https://s3-alpha-sig.figma.com/img/d978/3164/ec253e0e662a4e3aa070cee5202021e3?Expires=1650844800&Signature=VsVFot52rEf2h7~Qf89BFV7C2Fxn~0CpXzfw5G5ZPNfgUathUis0EYuptZiZBjMyiAv5UvT4ydEd-YZzVq3taK0oPdusI36tuFVcB4TVM4rv~htvkFvw8xBg8X5iGYno1Yb2hPN-2QsCKJUo6EZRKezBFZJm2hjXMqBbKtbKKslMdo8xARUXJC2jxudE2eacVaRY2AvI9mmAshZvIbOibnGlvKEGYoPsYgQooxe9Uc2vDLxBvD-RGoEbDrd5N145BvDXFrX7d543nTKsZAG8VWax1GnjHGwCo7UADa5GePgAotHloi1whD6gwddwSfuWn95RZL25tDAWLcjaTfFW7g__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
-                  title="Sugar Salmon"
-                  alt="Sugar Salmon"
+                  src={imageFood[4]}
+                  title={recip[4]}
+                  alt={recip[4]}
                   href="/"
                 />
               </div>
               <div className="col-sm" style={styles.mbMedium}>
                 <Card
-                  src="https://s3-alpha-sig.figma.com/img/0f19/c165/bb6555764d018e0687640abdfde17ba9?Expires=1650844800&Signature=edV6gYzdGd9GyPHxIiqNEaNL4neIUirOGSs~ssgNRRpWtMSnW3kL6J8bMxE3F1Xw4ONzR9g1oHOCE4h-~WGMG6BbnmBAG3UTzvv5IlhcRTGTZlDUUZeikPACtm3Cti3xWDzSXJuA-2u6diC6kFa9DEXV2QNPX1GbCcABN5hjtHIdUyy2vDnU84GN6scaOoIZdTsIpLoqffcF-FrSHpjNj4GOX9z7KxBE~NbJbGX4d5EdaHnj9susAyxkqKNRJeMz6pE8dRPO65C~PPxJOSOb860QZCHivzOW~mN2luw7CFKJohMKkOF3WmLgEuv5t4b6G5DeVN8~NMheCakrx1ihYQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
-                  title="Indian Salad"
-                  alt="Indian Salad"
-                  href="/"
+                  src={imageFood[5]}
+                  title={recip[5]}
+                  alt={recip[5]}
+                  href="/11"
                 />
               </div>
             </div>
