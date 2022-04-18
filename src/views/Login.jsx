@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Form, FormGroup, Label, Input } from 'reactstrap';
-import AuthJumbotron from '../components/AuthJumbotron/AuthJumbotron';
-import InputAuth from '../components/Input/Input';
-import ButtonComponent from '../components/ButtonComponent/ButtonComponent';
-import styles from '../assets/styles/styles';
-import '../assets/styles/style.css';
-import checkbox from '../assets/styles/style.module.css';
 import axios from 'axios';
 import { REACT_APP_API_URL } from '../config/env';
 
-// import { REACT_APP_API_HOST } from '../config/env';
+import AuthJumbotron from '../components/AuthJumbotron/AuthJumbotron';
+import InputAuth from '../components/Input/Input';
+import ButtonComponent from '../components/ButtonComponent/ButtonComponent';
+
+import styles from '../assets/styles/styles';
+import '../assets/styles/style.css';
+import checkbox from '../assets/styles/style.module.css';
 
 const Login = () => {
   const [form, setForm] = useState({
@@ -23,6 +24,8 @@ const Login = () => {
       [field]: e.target.value
     });
   };
+
+  console.log(form);
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -91,7 +94,10 @@ const Login = () => {
                   I agree to terms & conditions
                 </Label>
               </FormGroup>
-              <ButtonComponent style={styles.buttonSubmit} title="Submit" />
+              <Link to="/profile">
+                <ButtonComponent style={styles.buttonSubmit} title="Submit" />
+              </Link>
+
               <a style={styles.txtForgotPassword} href="/">
                 Forgot Password ?
               </a>

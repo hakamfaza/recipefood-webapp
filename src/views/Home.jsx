@@ -13,7 +13,7 @@ import bgVector from '../assets/img/bgvector.webp';
 import vegetable from '../assets/img/vegetable.webp';
 import foodOne from '../assets/img/foodone.webp';
 import axios from 'axios';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { REACT_APP_API_URL } from '../config/env';
 
 const Home = () => {

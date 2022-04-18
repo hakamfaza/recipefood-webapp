@@ -50,22 +50,7 @@ const Detail = () => {
             <h2 className="font" style={styles.titleRecipe}>
               Ingredients
             </h2>
-            <p>
-              {/* - 2 eggs
-              <br />
-              - 2 tbsp mayonnaise
-              <br />
-              - 3 slices bread
-              <br />
-              - a little butter
-              <br />
-              - ⅓ carton of cress
-              <br />
-              - 2-3 slices of tomato or a lettuce leaf and a slice of ham or
-              cheese
-              <br />- crisps , to serve */}
-              {getRecipe.ingredients}
-            </p>
+            <p>{getRecipe.ingredients}</p>
             <h2 className="font" style={styles.titleRecipe}>
               Detail Vidio
             </h2>
