@@ -56,6 +56,10 @@ const Home = () => {
     fetch('');
   });
 
+  const getId = recipe.map((e, i) => {
+    return e.id;
+  });
+
   const recip = recipe.map((e, i) => {
     return e.title;
   });
@@ -118,14 +122,12 @@ const Home = () => {
               />
             </div>
             <div className="col-sm" style={styles.imagePopularContainer}>
-              <Link to="item/123">
-                <CardMedium
-                  src="https://s3-alpha-sig.figma.com/img/b704/55ae/6c4d7c1bef2c9e97e8df92d4be8a1d1a?Expires=1650844800&Signature=HlwCLfdHWtZA7ssS3Zo27Gsziiye8wPWDK1qW8vdDugIEN0iA9JkX34T35enJYdhcBxsg~J2RbDGJhMDwaeq-3Z15H1d5KR7IpQmcylteLmaCPdPcDe0GWRlVvneCZXIJb1b~E4Vp0NF4rTpmpiGBUStz36hAVCoA26MnFnOpdnFGI7YrpGhH7yTS~anexY9EYIu5ySVWaZnc1uC4BnAfVtFVbGUTs9c70f8JIKLagNUBIF-OLRQWttHC~UBP0XXokE7oXA8a4dntVkyDaVVevN56au87d0Aeimu6CyT0iD9d-bWV6xuHxqUMyQMCoLBCINZscHQgucEs2VWVmrK3w__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
-                  title="King Burger"
-                  alt="King Burger"
-                  // href="/"
-                />
-              </Link>
+              <CardMedium
+                src="https://s3-alpha-sig.figma.com/img/b704/55ae/6c4d7c1bef2c9e97e8df92d4be8a1d1a?Expires=1650844800&Signature=HlwCLfdHWtZA7ssS3Zo27Gsziiye8wPWDK1qW8vdDugIEN0iA9JkX34T35enJYdhcBxsg~J2RbDGJhMDwaeq-3Z15H1d5KR7IpQmcylteLmaCPdPcDe0GWRlVvneCZXIJb1b~E4Vp0NF4rTpmpiGBUStz36hAVCoA26MnFnOpdnFGI7YrpGhH7yTS~anexY9EYIu5ySVWaZnc1uC4BnAfVtFVbGUTs9c70f8JIKLagNUBIF-OLRQWttHC~UBP0XXokE7oXA8a4dntVkyDaVVevN56au87d0Aeimu6CyT0iD9d-bWV6xuHxqUMyQMCoLBCINZscHQgucEs2VWVmrK3w__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
+                title="King Burger"
+                alt="King Burger"
+                href="/"
+              />
             </div>
           </div>
         </div>
@@ -167,55 +169,62 @@ const Home = () => {
           <div className="container">
             <div className="row" style={styles.mtMedium}>
               <div className="col-sm">
-                <Card
-                  src={imageFood[0]}
-                  title={recip[0]}
-                  alt={recip[0]}
-                  href="/"
-                />
+                <Link to={`/item/${getId[0]}`}>
+                  <Card src={imageFood[0]} title={recip[0]} alt={recip[0]} />
+                </Link>
               </div>
               <div className="col-sm">
-                <Card
-                  src={imageFood[1]}
-                  title={recip[1]}
-                  alt={recip[1]}
-                  href="/"
-                />
+                <Link to={`/item/${getId[1]}`}>
+                  <Card
+                    src={imageFood[1]}
+                    title={recip[1]}
+                    alt={recip[1]}
+                    href="/"
+                  />
+                </Link>
               </div>
               <div className="col-sm">
-                <Card
-                  src={imageFood[2]}
-                  title={recip[2]}
-                  alt={recip[2]}
-                  href="/"
-                />
+                <Link to={`/item/${getId[2]}`}>
+                  <Card
+                    src={imageFood[2]}
+                    title={recip[2]}
+                    alt={recip[2]}
+                    href="/"
+                  />
+                </Link>
               </div>
             </div>
 
             <div className="row" style={styles.mtMedium}>
               <div className="col-sm">
-                <Card
-                  src={imageFood[3]}
-                  title={recip[3]}
-                  alt={recip[3]}
-                  href="/"
-                />
+                <Link to={`/item/${getId[3]}`}>
+                  <Card
+                    src={imageFood[3]}
+                    title={recip[3]}
+                    alt={recip[3]}
+                    href="/"
+                  />
+                </Link>
               </div>
               <div className="col-sm">
-                <Card
-                  src={imageFood[4]}
-                  title={recip[4]}
-                  alt={recip[4]}
-                  href="/"
-                />
+                <Link to={`/item/${getId[4]}`}>
+                  <Card
+                    src={imageFood[4]}
+                    title={recip[4]}
+                    alt={recip[4]}
+                    href="/"
+                  />
+                </Link>
               </div>
               <div className="col-sm" style={styles.mbMedium}>
-                <Card
-                  src={imageFood[5]}
-                  title={recip[5]}
-                  alt={recip[5]}
-                  href="/11"
-                />
+                <Link to={`/item/${getId[5]}`}>
+                  <Card
+                    src={imageFood[5]}
+                    title={recip[5]}
+                    alt={recip[5]}
+                    href="/11"
+                  />
+                </Link>
               </div>
             </div>
           </div>

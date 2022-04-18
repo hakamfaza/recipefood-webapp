@@ -1,5 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import axios from 'axios';
+import { REACT_APP_API_URL } from '../config/env';
+
 import styles from '../assets/styles/styles';
 import Navbar from '../components/Navbar/Navbar';
 import { BiLike, BiBookmark } from 'react-icons/bi';
@@ -10,6 +13,15 @@ import Footer from '../components/Footer/Footer';
 
 const Detail = () => {
   const { id } = useParams();
+
+  const [getRecipe, setRecipe] = useState([]);
+
+  useEffect(() => {
+    axios.get(`${REACT_APP_API_URL}/recipe/${id}`).then((response) => {
+      setRecipe(response.data.data);
+    });
+  }, []);
+
   return (
     <>
       <Navbar />
@@ -19,12 +31,12 @@ const Detail = () => {
           <div className="row">
             <div className="col-sm" style={styles.detailImage}>
               <h1 className="font" style={styles.titleDetailRecipe}>
-                Loream Sandwich
+                {getRecipe.title}
               </h1>
               <div style={styles.boxImageDetail}>
                 <img
-                  src="https://s3-alpha-sig.figma.com/img/2ca7/faff/4da51338c06dd21688b82eae3bc9dfa6?Expires=1650844800&Signature=RIAAwPyMnN9sDA~c8Vx37nsEZmfiLIZ6GG7h2MNZd7paGI2p4uAg65T6oU8WaDhakelGrKs1xwc-UrgHIYT89AiyFc72oh2QiE0g8luZRbgBPnQXwxh1~0JqrwW9n16h98vvpU4o9isbtvAZXSdbmS1wFdthyKyFPplbOaZ6NmxRxqEUHgR~CJywLOQBeHhvNNHt3CQ-Ku3G1tcYeLMcHg8L6vjCwMBZUP7G13keRoshWpkOH6vr7ogdNa~djMUphT7c8hnnJIX0n2cvqxeb9G2Zj2C4j8tT~GfbgfuraEWSw1SSFbLWF0KggZeUVnylNnn5tIr8BKEQt4H61zpcYw__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
-                  alt=""
+                  src={getRecipe.image}
+                  alt={getRecipe.title}
                   style={styles.imageRecipe}
                 />
                 <div style={styles.boxIcon}>
@@ -39,7 +51,7 @@ const Detail = () => {
               Ingredients
             </h2>
             <p>
-              - 2 eggs
+              {/* - 2 eggs
               <br />
               - 2 tbsp mayonnaise
               <br />
@@ -51,12 +63,13 @@ const Detail = () => {
               <br />
               - 2-3 slices of tomato or a lettuce leaf and a slice of ham or
               cheese
-              <br />- crisps , to serve
+              <br />- crisps , to serve */}
+              {getRecipe.ingredients}
             </p>
             <h2 className="font" style={styles.titleRecipe}>
               Detail Vidio
             </h2>
-            <button style={styles.playButton}>
+            <button onClick="/" style={styles.playButton}>
               <FiPlay />
             </button>
           </div>

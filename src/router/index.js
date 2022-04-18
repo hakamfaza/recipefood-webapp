@@ -14,7 +14,8 @@ const router = () => {
       <Routes>
         <Route path="/">
           <Route index element={<Home />} /> {/*localhost: 3000/ */}
-          <Route path=":id" element={<Detail />} /> {/*localhost: 3000/123 */}
+          <Route path="item/:id" element={<Detail />} />{' '}
+          {/*localhost: 3000/123 */}
           <Route path="vidio" element={<Vidio />} /> {/*localhost: 3000/new */}
           <Route path="addrecipe" element={<AddRecipe />} />{' '}
           {/*localhost: 3000/new */}
