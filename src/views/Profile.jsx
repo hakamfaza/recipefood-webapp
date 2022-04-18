@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar/Navbar';
 import { FiEdit } from 'react-icons/fi';
 import {
@@ -14,9 +15,37 @@ import {
 import styles from '../assets/styles/styles';
 import CardSmall from '../components/CardSmall/CardSmall';
 import Footer from '../components/Footer/Footer';
+import axios from 'axios';
+import { REACT_APP_API_URL } from '../config/env';
 
 const Profile = () => {
+  const navigate = useNavigate();
+
+  const [user, setUser] = useState({});
   const [toggleState, setToggleState] = useState(1);
+
+  useEffect(() => {
+    const getToken = localStorage.getItem('token');
+    const getUser = localStorage.getItem('user');
+    setUser(JSON.parse(getUser));
+
+    if (!getToken || !getUser) {
+      navigate('/login');
+    }
+    // axios
+    //   .get(`${REACT_APP_API_URL}/user`, {
+    //     headers: {
+    //       token: getToken
+    //     }
+    //   })
+    //   .then((response) => {
+    //     setUser(response.data.data);
+    //   });
+  }, []);
+  // const wes = user.map((e, i) => {
+  //   return e;
+  // });
+  console.log(user);
 
   const toggleTab = (index) => {
     setToggleState(index);
@@ -40,7 +69,7 @@ const Profile = () => {
                 </a>
               </div>
               <h1 className="font" style={styles.titleUserProfile}>
-                Garneta Sharina
+                {user.name}
               </h1>
             </div>
           </div>

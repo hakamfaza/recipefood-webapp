@@ -35,20 +35,24 @@ const Home = () => {
       search: searchRecipe.title
     };
     axios
-      .get(`${REACT_APP_API_URL}/recipe?search=${query.search}`, {})
+      .get(`${REACT_APP_API_URL}/recipe?search=${'ayam'}`, {})
       .then((response) => {
         setSearchRecipe(response.data.data);
-        console.log(response.data);
+        // console.log(response.data);
       })
       .catch((err) => {
         console.log(err);
       }, []);
   };
 
+  console.log(searchRecipe.title);
+  console.log(searchRecipe.title);
   useEffect(() => {
-    axios.get(`${REACT_APP_API_URL}/recipe`).then((response) => {
-      setRecipe(response.data.data);
-    });
+    axios
+      .get(`${REACT_APP_API_URL}/recipe?search=${'ayam'}`)
+      .then((response) => {
+        setRecipe(response.data.data);
+      });
   }, []);
 
   return (

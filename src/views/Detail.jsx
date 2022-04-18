@@ -17,6 +17,7 @@ const Detail = () => {
   const [getRecipe, setRecipe] = useState([]);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     axios.get(`${REACT_APP_API_URL}/recipe/${id}`).then((response) => {
       setRecipe(response.data.data);
     });

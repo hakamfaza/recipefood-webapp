@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Form, FormGroup, Label, Input } from 'reactstrap';
+import { useNavigate } from 'react-router-dom';
+
 import axios from 'axios';
 import { REACT_APP_API_URL } from '../config/env';
+import { Form, FormGroup, Label, Input } from 'reactstrap';
 
 import AuthJumbotron from '../components/AuthJumbotron/AuthJumbotron';
 import InputAuth from '../components/Input/Input';
@@ -13,6 +14,7 @@ import '../assets/styles/style.css';
 import checkbox from '../assets/styles/style.module.css';
 
 const Login = () => {
+  const navigate = useNavigate();
   const [form, setForm] = useState({
     email: '',
     password: ''
@@ -25,7 +27,7 @@ const Login = () => {
     });
   };
 
-  console.log(form);
+  // console.log(form);
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -36,11 +38,15 @@ const Login = () => {
     axios
       .post(`${REACT_APP_API_URL}/login`, body, {})
       .then((response) => {
-        if (response.data.status === 'failed') {
-          console.log('failed');
-        } else {
-          console.log('success');
-        }
+        // console.log(response.data);
+        localStorage.setItem('token', response.data.data.token);
+        localStorage.setItem('user', JSON.stringify(response.data.data.user));
+        navigate('/profile');
+        // if (response.data.status === 'failed') {
+        //   console.log('failed');
+        // } else {
+        //   console.log('success');
+        // }
       })
       .catch((err) => {
         console.log(err);
@@ -94,10 +100,7 @@ const Login = () => {
                   I agree to terms & conditions
                 </Label>
               </FormGroup>
-              <Link to="/profile">
-                <ButtonComponent style={styles.buttonSubmit} title="Submit" />
-              </Link>
-
+              <ButtonComponent style={styles.buttonSubmit} title="Submit" />
               <a style={styles.txtForgotPassword} href="/">
                 Forgot Password ?
               </a>
