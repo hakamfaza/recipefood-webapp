@@ -7,6 +7,7 @@ import AddRecipe from '../views/AddRecipe';
 import Login from '../views/Login';
 import SignUp from '../views/SignUp';
 import Profile from '../views/Profile';
+import Search from '../views/Search';
 
 const router = () => {
   return (
@@ -25,6 +26,7 @@ const router = () => {
           {/*localhost: 3000/signup */}
           <Route path="profile" element={<Profile />} />{' '}
           {/*localhost: 3000/profile */}
+          <Route path="search/:id" element={<Search />} />
         </Route>
       </Routes>
     </BrowserRouter>

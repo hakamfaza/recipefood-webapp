@@ -13,9 +13,10 @@ import bgVector from '../assets/img/bgvector.webp';
 import vegetable from '../assets/img/vegetable.webp';
 import foodOne from '../assets/img/foodone.webp';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Home = () => {
+  const navigate = useNavigate();
   const [newRecipe, setNewRecipe] = useState([]);
   const [recipe, setRecipe] = useState([]);
   const [searchRecipe, setSearchRecipe] = useState({
@@ -34,14 +35,7 @@ const Home = () => {
     const query = {
       search: searchRecipe.title
     };
-    axios
-      .get(`${process.env.REACT_APP_API_URL}/recipe?search=${query.search}`, {})
-      .then((response) => {
-        setSearchRecipe(response.data.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      }, []);
+    navigate(`/search/${query.search}`);
   };
 
   // All Recipe
