@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import axios from 'axios';
-import { REACT_APP_API_URL } from '../config/env';
 import { Form, FormGroup, Label, Input } from 'reactstrap';
 
 import AuthJumbotron from '../components/AuthJumbotron/AuthJumbotron';
@@ -36,7 +35,7 @@ const Login = () => {
       password: form.password
     };
     axios
-      .post(`${REACT_APP_API_URL}/login`, body, {})
+      .post(`${process.env.REACT_APP_API_URL}/login`, body, {})
       .then((response) => {
         // console.log(response.data);
         localStorage.setItem('token', response.data.data.token);

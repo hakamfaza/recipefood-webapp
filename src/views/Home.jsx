@@ -14,9 +14,9 @@ import vegetable from '../assets/img/vegetable.webp';
 import foodOne from '../assets/img/foodone.webp';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import { REACT_APP_API_URL } from '../config/env';
 
 const Home = () => {
+  const [newRecipe, setNewRecipe] = useState([]);
   const [recipe, setRecipe] = useState([]);
   const [searchRecipe, setSearchRecipe] = useState({
     title: ''
@@ -35,21 +35,34 @@ const Home = () => {
       search: searchRecipe.title
     };
     axios
-      .get(`${REACT_APP_API_URL}/recipe?search=${query.search}`, {})
+      .get(`${process.env.REACT_APP_API_URL}/recipe?search=${query.search}`, {})
       .then((response) => {
         setSearchRecipe(response.data.data);
-        console.log(response.data);
       })
       .catch((err) => {
         console.log(err);
       }, []);
   };
 
+  // All Recipe
   useEffect(() => {
     axios
-      .get(`${REACT_APP_API_URL}/recipe?sortType=ASC&sortField=date`)
+      .get(
+        `${process.env.REACT_APP_API_URL}/recipe?sortType=ASC&sortField=date`
+      )
       .then((response) => {
         setRecipe(response.data.data);
+      });
+  }, []);
+
+  // New Recipe
+  useEffect(() => {
+    axios
+      .get(
+        `${process.env.REACT_APP_API_URL}/recipe?sortType=DESC&sortField=date`
+      )
+      .then((response) => {
+        setNewRecipe(response.data.data[0]);
       });
   }, []);
 
@@ -123,22 +136,23 @@ const Home = () => {
               <div style={styles.bgObject} />
               <div style={styles.boxCard}>
                 <CardMedium
-                  src="https://s3-alpha-sig.figma.com/img/a940/c01b/c2792cef25a0bfa97a2bd8c65b80f9c5?Expires=1650844800&Signature=IqXV5VER~KytLlE8ceWM2junqiT-ZBiY5A8A9nJ4V7hirYHrdAHK6y8XViTx1FEQyEYmvBjNpg1myRCM8ss6nMkpJoZbv2pV4LVcBAUl-7xdaYKHKPh3ymqSC~18Nl7eUfhVdxoaHxbf5OVLa8HNdoQZof8xAxyfFtCi2vy63DqPGWW5fP1BKkcf647W8YMWfrtaxJ6XqzrRp~EVNsXZ5Nd~G9U~ToagswAnz9qPAVRONj5QpNrLqjH4wi3Hehlttq4FodSFj7MVfid5HRrO8DVYaMzAx789n4mCszmrb5TjlyVa~lOa4URyPRM7xigBPSHw~Z6NihWmHbv8WJOgbA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
-                  alt="Chicken Bone"
+                  src={`${process.env.REACT_APP_API_URL}/image/${newRecipe.image}`}
                 />
               </div>
             </div>
             <div className="col-sm" style={styles.boxAboutRecipe}>
               <div>
                 <h1 className="font" style={styles.aboutTitle}>
-                  Healthy Bone Broth Ramen (Quick & Easy)
+                  {newRecipe.title}
                 </h1>
                 <div style={styles.line} />
                 <p style={styles.textAbout}>
-                  Quick + Easy Chicken Bone Broth Ramen- Healthy chicken ramen
-                  in a hurry? That’s right!
+                  Quick + Easy {newRecipe.title}- Healthy {newRecipe.title} in a
+                  hurry? That’s right!
                 </p>
-                <button className="button">Learn More</button>
+                <Link to={`/item/${newRecipe.id}`}>
+                  <button className="button">Learn More</button>
+                </Link>
               </div>
             </div>
           </div>
@@ -151,7 +165,6 @@ const Home = () => {
           <div className="container">
             <div className="row" style={styles.boxOfCard}>
               {recipe.map((e, i) => {
-                console.log();
                 return (
                   <div className="col-sm" key={i}>
                     <Link to={`/item/${e.id}`}>

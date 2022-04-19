@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import { REACT_APP_API_URL } from '../config/env';
 
 import styles from '../assets/styles/styles';
 import Navbar from '../components/Navbar/Navbar';
@@ -18,9 +17,11 @@ const Detail = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    axios.get(`${REACT_APP_API_URL}/recipe/${id}`).then((response) => {
-      setRecipe(response.data.data);
-    });
+    axios
+      .get(`${process.env.REACT_APP_API_URL}/recipe/${id}`)
+      .then((response) => {
+        setRecipe(response.data.data);
+      });
   }, []);
 
   return (

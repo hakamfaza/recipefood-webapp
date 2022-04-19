@@ -16,7 +16,6 @@ import styles from '../assets/styles/styles';
 import CardSmall from '../components/CardSmall/CardSmall';
 import Footer from '../components/Footer/Footer';
 import axios from 'axios';
-import { REACT_APP_API_URL } from '../config/env';
 
 const Profile = () => {
   const navigate = useNavigate();
@@ -38,18 +37,22 @@ const Profile = () => {
       navigate('/login');
     }
 
-    axios.get(`${REACT_APP_API_URL}/recipeUser`, body, {}).then((response) => {
-      setRecipe(response.data.data);
-      console.log(response.data.data);
-    });
+    axios
+      .get(`${process.env.REACT_APP_API_URL}/recipeUser`, body, {})
+      .then((response) => {
+        setRecipe(response.data.data);
+        console.log(response.data.data);
+      });
   }, []);
 
   console.log(body);
   useEffect(() => {
-    axios.get(`${REACT_APP_API_URL}/recipeUser`, body, {}).then((response) => {
-      setRecipe(response.data.data);
-      console.log(response.data);
-    });
+    axios
+      .get(`${process.env.REACT_APP_API_URL}/recipeUser`, body, {})
+      .then((response) => {
+        setRecipe(response.data.data);
+        console.log(response.data);
+      });
   });
   // const wes = user.map((e, i) => {
   //   return e;

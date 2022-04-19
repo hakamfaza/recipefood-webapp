@@ -9,7 +9,6 @@ import ButtonComponent from '../components/ButtonComponent/ButtonComponent';
 import styles from '../assets/styles/styles';
 import '../assets/styles/style.css';
 import checkbox from '../assets/styles/style.module.css';
-import { REACT_APP_API_URL } from '../config/env';
 import { useNavigate } from 'react-router-dom';
 
 // import user from '../assets/img/user.png';
@@ -45,7 +44,7 @@ const SignUp = () => {
         password: form.password
       };
       axios
-        .post(`${REACT_APP_API_URL}/register`, body, {})
+        .post(`${process.env.REACT_APP_API_URL}/register`, body, {})
         .then((response) => {
           console.log(response.data);
           localStorage.setItem('token', response.data.data.token);
