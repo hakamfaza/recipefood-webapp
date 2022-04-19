@@ -36,7 +36,7 @@ const Detail = () => {
               </h1>
               <div style={styles.boxImageDetail}>
                 <img
-                  src={getRecipe.image}
+                  src={`${process.env.REACT_APP_API_URL}/image/${getRecipe.image}`}
                   alt={getRecipe.title}
                   style={styles.imageRecipe}
                 />

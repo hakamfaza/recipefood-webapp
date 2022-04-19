@@ -22,7 +22,12 @@ const Profile = () => {
   const navigate = useNavigate();
 
   const [user, setUser] = useState({});
+  const [recipe, setRecipe] = useState({});
   const [toggleState, setToggleState] = useState(1);
+
+  const body = {
+    id: user.id
+  };
 
   useEffect(() => {
     const getToken = localStorage.getItem('token');
@@ -32,20 +37,23 @@ const Profile = () => {
     if (!getToken || !getUser) {
       navigate('/login');
     }
-    // axios
-    //   .get(`${REACT_APP_API_URL}/user`, {
-    //     headers: {
-    //       token: getToken
-    //     }
-    //   })
-    //   .then((response) => {
-    //     setUser(response.data.data);
-    //   });
+
+    axios.get(`${REACT_APP_API_URL}/recipeUser`, body, {}).then((response) => {
+      setRecipe(response.data.data);
+      console.log(response.data.data);
+    });
   }, []);
+
+  console.log(body);
+  useEffect(() => {
+    axios.get(`${REACT_APP_API_URL}/recipeUser`, body, {}).then((response) => {
+      setRecipe(response.data.data);
+      console.log(response.data);
+    });
+  });
   // const wes = user.map((e, i) => {
   //   return e;
   // });
-  console.log(user);
 
   const toggleTab = (index) => {
     setToggleState(index);

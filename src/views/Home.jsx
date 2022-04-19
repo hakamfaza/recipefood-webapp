@@ -35,21 +35,19 @@ const Home = () => {
       search: searchRecipe.title
     };
     axios
-      .get(`${REACT_APP_API_URL}/recipe?search=${'ayam'}`, {})
+      .get(`${REACT_APP_API_URL}/recipe?search=${query.search}`, {})
       .then((response) => {
         setSearchRecipe(response.data.data);
-        // console.log(response.data);
+        console.log(response.data);
       })
       .catch((err) => {
         console.log(err);
       }, []);
   };
 
-  console.log(searchRecipe.title);
-  console.log(searchRecipe.title);
   useEffect(() => {
     axios
-      .get(`${REACT_APP_API_URL}/recipe?search=${'ayam'}`)
+      .get(`${REACT_APP_API_URL}/recipe?sortType=ASC&sortField=date`)
       .then((response) => {
         setRecipe(response.data.data);
       });
@@ -153,10 +151,15 @@ const Home = () => {
           <div className="container">
             <div className="row" style={styles.boxOfCard}>
               {recipe.map((e, i) => {
+                console.log();
                 return (
                   <div className="col-sm" key={i}>
                     <Link to={`/item/${e.id}`}>
-                      <Card src={e.image} title={e.title} alt={e.title} />
+                      <Card
+                        src={`${process.env.REACT_APP_API_URL}/image/${e.image}`}
+                        title={e.title}
+                        alt={e.title}
+                      />
                     </Link>
                   </div>
                 );

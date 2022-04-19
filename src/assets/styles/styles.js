@@ -65,6 +65,9 @@ const styles = {
   },
   cardContainer: {
     position: 'relative',
+    width: '300px',
+    height: '300px',
+    // border: 'solid 1px #707070',
     borderRadius: '15px',
     marginBottom: '30px',
     marginTop: '30px'
@@ -441,7 +444,9 @@ const styles = {
     fontWeight: '600'
   },
   boxImageDetail: {
-    position: 'relative'
+    position: 'relative',
+    width: '650px',
+    height: '400px'
   },
   imageRecipe: {
     width: '650px',
@@ -452,7 +457,7 @@ const styles = {
   },
   boxIcon: {
     position: 'absolute',
-    bottom: '10px',
+    bottom: '1px',
     right: '10px',
     padding: '5px'
   },

@@ -10,10 +10,12 @@ import styles from '../assets/styles/styles';
 import '../assets/styles/style.css';
 import checkbox from '../assets/styles/style.module.css';
 import { REACT_APP_API_URL } from '../config/env';
+import { useNavigate } from 'react-router-dom';
 
 // import user from '../assets/img/user.png';
 
 const SignUp = () => {
+  const navigate = useNavigate();
   // set default
   const [form, setForm] = useState({
     name: '',
@@ -43,9 +45,12 @@ const SignUp = () => {
         password: form.password
       };
       axios
-        .post(`${REACT_APP_API_URL}/login`, body, {})
+        .post(`${REACT_APP_API_URL}/register`, body, {})
         .then((response) => {
-          console.log(response);
+          console.log(response.data);
+          localStorage.setItem('token', response.data.data.token);
+          localStorage.setItem('user', JSON.stringify(response.data.data.user));
+          navigate('/profile');
         })
         .catch((err) => {
           console.log(err);
