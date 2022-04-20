@@ -18,10 +18,10 @@ const CardSmall = (params) => {
           </h3>
         </a>
         <div style={styles.boxActionRecipe}>
-          <a href="edit">
+          <a href={params.edit}>
             <FiEdit style={styles.editeIconCard} />
           </a>
-          <a href="delete">
+          <a href={params.delete}>
             <MdOutlineDelete style={styles.deleteIcon} />
           </a>
         </div>

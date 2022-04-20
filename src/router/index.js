@@ -8,25 +8,22 @@ import Login from '../views/Login';
 import SignUp from '../views/SignUp';
 import Profile from '../views/Profile';
 import Search from '../views/Search';
+import EditRecipe from '../views/Editrecipe';
 
 const router = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/">
-          <Route index element={<Home />} /> {/*localhost: 3000/ */}
-          <Route path="item/:id" element={<Detail />} />{' '}
-          {/*localhost: 3000/123 */}
-          <Route path="vidio" element={<Vidio />} /> {/*localhost: 3000/new */}
-          <Route path="addrecipe" element={<AddRecipe />} />{' '}
-          {/*localhost: 3000/new */}
-          <Route path="login" element={<Login />} />{' '}
-          {/*localhost: 3000/login */}
-          <Route path="signup" element={<SignUp />} />{' '}
-          {/*localhost: 3000/signup */}
-          <Route path="/profile" element={<Profile />} />{' '}
-          {/*localhost: 3000/profile */}
+          <Route index element={<Home />} />
+          <Route path="item/:id" element={<Detail />} />
+          <Route path="vidio" element={<Vidio />} />
+          <Route path="addrecipe" element={<AddRecipe />} />
+          <Route path="login" element={<Login />} />
+          <Route path="signup" element={<SignUp />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="/search" element={<Search />} />
+          <Route path="/edit" element={<EditRecipe />} />
         </Route>
       </Routes>
     </BrowserRouter>

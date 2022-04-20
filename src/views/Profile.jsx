@@ -32,7 +32,6 @@ const Profile = () => {
       })
       .then((response) => {
         setRecipe(response.data.data);
-        console.log(response.data);
       });
   }, []);
 
@@ -49,7 +48,7 @@ const Profile = () => {
             <div className="col-sm" style={styles.boxUserProfile}>
               <div style={styles.userProfile}>
                 <img
-                  src="https://s3-alpha-sig.figma.com/img/d063/327b/4662c85cb7661f579e2c9baff0ce5fdc?Expires=1650844800&Signature=MBA-enll1UC8IkCVbFsEzMC7tfRm3KUWx3LttO7XUnztWoBW9AyCoLrqUYuTyE4QqMgbsFk1z2JOVm9Ny-v-wHxxTgxjj5jawQlM9dY6u29NIprVKjbnrXDqwCSv5fFX9KgQ1kWRC4rvg88kgTHP72QAlUsmktJMgOdAr5uS9qJHEPLcBmf3I0YybOwTNneyhlp4Z2sKQgqzaJdD35Nxx2HyOG1BDstY7j2aGcCmJG7IJAVSjDo7IWVu3wlDIqtKYnLL7ekyKaejFqhGYOII6QGJVAVG~TfP91ETSiOJbBP~iW7mradb9LPpcXL6OEO0t9KOCQB9FLqkhhKR10TtOQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
+                  src={`${process.env.REACT_APP_API_URL}/image/${user.photo}`}
                   alt="User Profile"
                   style={styles.userImage}
                 />
@@ -112,6 +111,7 @@ const Profile = () => {
                               src={`${process.env.REACT_APP_API_URL}/image/${e.image}`}
                               title={e.title}
                               alt={e.title}
+                              edit="/edit"
                             />
                           </div>
                         );

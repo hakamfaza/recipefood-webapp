@@ -15,8 +15,10 @@ import { useNavigate } from 'react-router-dom';
 
 const SignUp = () => {
   const navigate = useNavigate();
+
   // set default
   const [form, setForm] = useState({
+    photo: '',
     name: '',
     email: '',
     phone: '',
@@ -34,22 +36,25 @@ const SignUp = () => {
   // when submitted
   const onSubmit = (e) => {
     e.preventDefault();
+
     if (form.password !== form.newPassword) {
       alert('password is not the same, please check again!');
     } else {
-      const body = {
-        name: form.name,
-        email: form.email,
-        phone: form.phone,
-        password: form.password
-      };
+      const bodyFormData = new FormData();
+
+      for (const key in form) {
+        bodyFormData.append(key, form[key]);
+      }
+      console.log(bodyFormData);
       axios
-        .post(`${process.env.REACT_APP_API_URL}/register`, body, {})
+        .post(`${process.env.REACT_APP_API_URL}/register`, bodyFormData, {
+          headers: { 'Content-Type': 'multipart/form-data' }
+        })
         .then((response) => {
           console.log(response.data);
           localStorage.setItem('token', response.data.data.token);
           localStorage.setItem('user', JSON.stringify(response.data.data.user));
-          navigate('/profile');
+          // navigate('/profile');
         })
         .catch((err) => {
           console.log(err);
@@ -78,6 +83,14 @@ const SignUp = () => {
               style={styles.formWidth}
               onSubmit={(e) => onSubmit(e)}
             >
+              <InputAuth
+                title="Photo"
+                for="photo"
+                id="photo"
+                name="photo"
+                type="file"
+                onChange={(e) => onChangeInput(e, 'name')}
+              />
               <InputAuth
                 title="Name"
                 for="name"
