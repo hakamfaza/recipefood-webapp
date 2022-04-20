@@ -127,26 +127,16 @@ const styles = {
     fontSize: '10px',
     color: '#AAAAAA'
   },
+
+  boxCardRecipeProfile: {
+    position: 'relative',
+    width: '320px'
+  },
   boxActionRecipe: {
     position: 'absolute',
     bottom: '10px',
     right: '10px'
   },
-  editeIconCard: {
-    fontSize: '24px',
-    color: COLORS.secondaryColor,
-    backgroundColor: COLORS.primryColor,
-    marginRight: '10px',
-    padding: '2.5px',
-    borderRadius: '3px'
-  },
-  deleteIcon: {
-    fontSize: '24px',
-    color: COLORS.primryColor,
-    backgroundColor: COLORS.secondaryColor,
-    borderRadius: '3px'
-  },
-
   containerAuth: {
     height: '100vh'
   },

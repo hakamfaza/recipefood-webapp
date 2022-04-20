@@ -1,7 +1,5 @@
 import React from 'react';
 import styles from '../../assets/styles/styles';
-import { FiEdit } from 'react-icons/fi';
-import { MdOutlineDelete } from 'react-icons/md';
 
 const CardSmall = (params) => {
   return (
@@ -17,14 +15,6 @@ const CardSmall = (params) => {
             {params.title}
           </h3>
         </a>
-        <div style={styles.boxActionRecipe}>
-          <a href={params.edit}>
-            <FiEdit style={styles.editeIconCard} />
-          </a>
-          <a href={params.delete}>
-            <MdOutlineDelete style={styles.deleteIcon} />
-          </a>
-        </div>
       </div>
     </>
   );

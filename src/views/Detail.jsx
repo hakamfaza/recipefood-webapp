@@ -34,7 +34,6 @@ const Detail = () => {
   return (
     <>
       <Navbar />
-      <h1>Halaman Detail {id}</h1>
       <section>
         <div className="container-fluid" style={styles.detailContainer}>
           <div className="row">

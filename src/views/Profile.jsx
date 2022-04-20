@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import Navbar from '../components/Navbar/Navbar';
 import { FiEdit } from 'react-icons/fi';
 import { Nav, NavItem, NavLink, TabContent, TabPane } from 'reactstrap';
@@ -9,12 +9,18 @@ import CardSmall from '../components/CardSmall/CardSmall';
 import Footer from '../components/Footer/Footer';
 import axios from 'axios';
 
+import Delete from '../components/Delete/Delete';
+import Edit from '../components/Edit/Edit';
+
 const Profile = () => {
   const navigate = useNavigate();
 
   const [user, setUser] = useState({});
   const [recipe, setRecipe] = useState([]);
   const [toggleState, setToggleState] = useState(1);
+
+  const [getIdRecipe, setIdRecipe] = useState([]);
+  console.log(getIdRecipe);
 
   useEffect(() => {
     const getToken = localStorage.getItem('token');
@@ -107,12 +113,24 @@ const Profile = () => {
                       {recipe.map((e, i) => {
                         return (
                           <div className="col" key={i}>
-                            <CardSmall
-                              src={`${process.env.REACT_APP_API_URL}/image/${e.image}`}
-                              title={e.title}
-                              alt={e.title}
-                              edit="/edit"
-                            />
+                            <div style={styles.boxCardRecipeProfile}>
+                              <Link to={`/item/${e.id}`}>
+                                <CardSmall
+                                  src={`${process.env.REACT_APP_API_URL}/image/${e.image}`}
+                                  title={e.title}
+                                  alt={e.title}
+                                  edit="/edit"
+                                />
+                              </Link>
+                              <div style={styles.boxActionRecipe}>
+                                <Link to="/edit">
+                                  <Edit />
+                                </Link>
+                                <Link to="/edit">
+                                  <Delete />
+                                </Link>
+                              </div>
+                            </div>
                           </div>
                         );
                       })}
@@ -121,36 +139,12 @@ const Profile = () => {
                 </TabPane>
                 <TabPane tabId="2">
                   <div className="container">
-                    <div className="row" style={styles.boxCardRecipe}>
-                      {recipe.map((e, i) => {
-                        return (
-                          <div className="col" key={i}>
-                            <CardSmall
-                              // src={`${process.env.REACT_APP_API_URL}/image/${e.image}`}
-                              title={e.title}
-                              alt={e.title}
-                            />
-                          </div>
-                        );
-                      })}
-                    </div>
+                    <div className="row" style={styles.boxCardRecipe}></div>
                   </div>
                 </TabPane>
                 <TabPane tabId="3">
                   <div className="container">
-                    <div className="row" style={styles.boxCardRecipe}>
-                      {recipe.map((e, i) => {
-                        return (
-                          <div className="col" key={i}>
-                            <CardSmall
-                              // src={`${process.env.REACT_APP_API_URL}/image/${e.image}`}
-                              title={e.title}
-                              alt={e.title}
-                            />
-                          </div>
-                        );
-                      })}
-                    </div>
+                    <div className="row" style={styles.boxCardRecipe}></div>
                   </div>
                 </TabPane>
               </TabContent>
