@@ -53,7 +53,7 @@ const NavbarComponent = () => {
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href={`/${user.name}`} style={styles.navtext}>
+              <NavLink href="/profile" style={styles.navtext}>
                 Profile
               </NavLink>
             </NavItem>

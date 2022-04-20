@@ -17,6 +17,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 const Home = () => {
   const navigate = useNavigate();
+
   const [newRecipe, setNewRecipe] = useState([]);
   const [recipe, setRecipe] = useState([]);
   const [searchRecipe, setSearchRecipe] = useState({
@@ -35,7 +36,10 @@ const Home = () => {
     const query = {
       search: searchRecipe.title
     };
-    navigate(`/search/${query.search}`);
+    navigate({
+      pathname: '/search',
+      search: `?q=${query.search}`
+    });
   };
 
   // All Recipe

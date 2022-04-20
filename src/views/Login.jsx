@@ -43,7 +43,7 @@ const Login = () => {
         localStorage.setItem('token', response.data.data.token);
         localStorage.setItem('user', JSON.stringify(response.data.data.user));
         setUser(response.data.data.user.name);
-        navigate(`/${getUser}`);
+        navigate(`/profile/${getUser}`);
         // if (response.data.status === 'failed') {
         //   console.log('failed');
         // } else {

@@ -9,6 +9,7 @@ const CardResult = (params) => {
         <div className={styles.boxImage}>
           <img src={params.src} alt={params.alt} className={styles.image} />
         </div>
+
         <div className={styles.boxAction}>
           <div className={styles.textBox}>
             <h5 className={('font', styles.recipeTitle)}>{params.title}</h5>
@@ -18,6 +19,13 @@ const CardResult = (params) => {
             <button className={styles.button}>Detail</button>
           </a>
         </div>
+
+        {/* <div className="container-fluid">
+          <div className="row">
+            <div className="col-md-12 bg-info">Hallo</div>
+            <div className="col-md-12 bg-info">Hallo</div>
+          </div>
+        </div> */}
       </div>
     </>
   );

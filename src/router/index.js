@@ -24,9 +24,9 @@ const router = () => {
           {/*localhost: 3000/login */}
           <Route path="signup" element={<SignUp />} />{' '}
           {/*localhost: 3000/signup */}
-          <Route path="/:id" element={<Profile />} />{' '}
+          <Route path="/profile" element={<Profile />} />{' '}
           {/*localhost: 3000/profile */}
-          <Route path="search/:id" element={<Search />} />
+          <Route path="/search" element={<Search />} />
         </Route>
       </Routes>
     </BrowserRouter>
