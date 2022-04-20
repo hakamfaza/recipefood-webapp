@@ -29,7 +29,7 @@ const Search = () => {
         <div className="row">
           {getRecipe.map((e, i) => {
             return (
-              <div className="col" key={i}>
+              <div className="col-md-3" key={i}>
                 <CardResult
                   src={`${process.env.REACT_APP_API_URL}/image/${e.image}`}
                   title={e.title}

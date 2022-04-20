@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Navbar,
   NavbarBrand,
@@ -13,6 +13,12 @@ import styles from '../../assets/styles/styles';
 
 const NavbarComponent = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [user, setUser] = useState({});
+
+  useEffect(() => {
+    const getUser = localStorage.getItem('user');
+    setUser(JSON.parse(getUser));
+  }, []);
 
   return (
     <div>
@@ -47,7 +53,7 @@ const NavbarComponent = () => {
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/profile" style={styles.navtext}>
+              <NavLink href={`/${user.name}`} style={styles.navtext}>
                 Profile
               </NavLink>
             </NavItem>

@@ -109,7 +109,8 @@ const styles = {
     position: 'relative',
     height: '200px',
     width: '320px',
-    marginRight: '20px'
+    marginRight: '20px',
+    marginTop: '50px'
   },
   cardImageSmall: {
     height: '200px',
@@ -372,6 +373,9 @@ const styles = {
     backgroundColor: COLORS.primryColor,
     marginTop: '100px'
   },
+  mtMedium: {
+    marginTop: '20px'
+  },
   titlePopular: {
     marginTop: '40px',
     marginLeft: '50px',
@@ -421,7 +425,7 @@ const styles = {
     marginTop: '15px'
   },
   boxOfCard: {
-    marginTop: '50px',
+    marginTop: '30px',
     marginBottom: '100px'
   },
   mbMedium: {

@@ -42,7 +42,7 @@ const Home = () => {
   useEffect(() => {
     axios
       .get(
-        `${process.env.REACT_APP_API_URL}/recipe?sortType=ASC&sortField=date`
+        `${process.env.REACT_APP_API_URL}/recipe?sortType=DESC&sortField=date`
       )
       .then((response) => {
         setRecipe(response.data.data);
@@ -102,7 +102,7 @@ const Home = () => {
             Popular For You
           </h1>
           <div className="row" style={styles.mtMedium}>
-            <div className="col-sm" style={styles.imagePopularContainer}>
+            <div className="col-md-6" style={styles.imagePopularContainer}>
               <CardMedium
                 src="https://s3-alpha-sig.figma.com/img/fb0d/a674/ee224fca0fd31394f7e036dec5eeb4ca?Expires=1650844800&Signature=gPXeHdgMPMqVtGz6~SGrs0d2YG822sa-bVWEoh0wOUSgajin6YbRtHTd0S8F9NjIgFOoHyB-VaPUYqIS7KxCS8yYwq0ckPgLIqejYFrEqwI9AJKGTxmXAXDxH~PMIZ5wuZYvaD8quPTA7q8HNbz1bKeyGZja0Kv94H3lcyzcoXhKghmWuN9BqNt8pY2E9Zms4OFaxakIdTW9XPbs7ED9~30H64oHrOxmbQY6Mv7pqLX5S3-flBAtmzmErvNuUGQ-l1JfQ7d5slAT42vUpesfEJKNBGk-dArS36WgXrRmHh6-5HxWPUdBYJFI5v308xrapnAX06cUKVbnpgrloI8MWw__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
                 title="Pizza Lamoa"
@@ -110,7 +110,7 @@ const Home = () => {
                 href="/"
               />
             </div>
-            <div className="col-sm" style={styles.imagePopularContainer}>
+            <div className="col-md-6" style={styles.imagePopularContainer}>
               <CardMedium
                 src="https://s3-alpha-sig.figma.com/img/b704/55ae/6c4d7c1bef2c9e97e8df92d4be8a1d1a?Expires=1650844800&Signature=HlwCLfdHWtZA7ssS3Zo27Gsziiye8wPWDK1qW8vdDugIEN0iA9JkX34T35enJYdhcBxsg~J2RbDGJhMDwaeq-3Z15H1d5KR7IpQmcylteLmaCPdPcDe0GWRlVvneCZXIJb1b~E4Vp0NF4rTpmpiGBUStz36hAVCoA26MnFnOpdnFGI7YrpGhH7yTS~anexY9EYIu5ySVWaZnc1uC4BnAfVtFVbGUTs9c70f8JIKLagNUBIF-OLRQWttHC~UBP0XXokE7oXA8a4dntVkyDaVVevN56au87d0Aeimu6CyT0iD9d-bWV6xuHxqUMyQMCoLBCINZscHQgucEs2VWVmrK3w__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
                 title="King Burger"
@@ -154,7 +154,7 @@ const Home = () => {
 
         <div className="container-fluid" style={styles.boxPopular}>
           <h1 style={styles.titlePopular} className="font">
-            Show Recipe
+            Latest Recipe
           </h1>
           <div className="container">
             <div className="row" style={styles.boxOfCard}>

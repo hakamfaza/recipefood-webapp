@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 
 import styles from '../assets/styles/styles';
@@ -11,11 +11,18 @@ import { FiPlay } from 'react-icons/fi';
 import Footer from '../components/Footer/Footer';
 
 const Detail = () => {
+  const navigate = useNavigate();
   const { id } = useParams();
 
   const [getRecipe, setRecipe] = useState([]);
 
   useEffect(() => {
+    const getToken = localStorage.getItem('token');
+    const getUser = localStorage.getItem('user');
+
+    if (!getToken || !getUser) {
+      navigate('/login');
+    }
     window.scrollTo(0, 0);
     axios
       .get(`${process.env.REACT_APP_API_URL}/recipe/${id}`)

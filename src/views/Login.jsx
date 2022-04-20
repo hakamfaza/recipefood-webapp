@@ -19,6 +19,8 @@ const Login = () => {
     password: ''
   });
 
+  const [getUser, setUser] = useState([]);
+
   const onChangeInput = (e, field) => {
     setForm({
       ...form,
@@ -40,7 +42,8 @@ const Login = () => {
         // console.log(response.data);
         localStorage.setItem('token', response.data.data.token);
         localStorage.setItem('user', JSON.stringify(response.data.data.user));
-        navigate('/profile');
+        setUser(response.data.data.user.name);
+        navigate(`/${getUser}`);
         // if (response.data.status === 'failed') {
         //   console.log('failed');
         // } else {

@@ -2,15 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar/Navbar';
 import { FiEdit } from 'react-icons/fi';
-import {
-  Nav,
-  NavItem,
-  NavLink,
-  TabContent,
-  TabPane,
-  Row,
-  Col
-} from 'reactstrap';
+import { Nav, NavItem, NavLink, TabContent, TabPane } from 'reactstrap';
 
 import styles from '../assets/styles/styles';
 import CardSmall from '../components/CardSmall/CardSmall';
@@ -21,12 +13,8 @@ const Profile = () => {
   const navigate = useNavigate();
 
   const [user, setUser] = useState({});
-  const [recipe, setRecipe] = useState({});
+  const [recipe, setRecipe] = useState([]);
   const [toggleState, setToggleState] = useState(1);
-
-  const body = {
-    id: user.id
-  };
 
   useEffect(() => {
     const getToken = localStorage.getItem('token');
@@ -36,27 +24,17 @@ const Profile = () => {
     if (!getToken || !getUser) {
       navigate('/login');
     }
-
     axios
-      .get(`${process.env.REACT_APP_API_URL}/recipeUser`, body, {})
-      .then((response) => {
-        setRecipe(response.data.data);
-        console.log(response.data.data);
-      });
-  }, []);
-
-  console.log(body);
-  useEffect(() => {
-    axios
-      .get(`${process.env.REACT_APP_API_URL}/recipeUser`, body, {})
+      .get(`${process.env.REACT_APP_API_URL}/recipeUser`, {
+        headers: {
+          token: getToken
+        }
+      })
       .then((response) => {
         setRecipe(response.data.data);
         console.log(response.data);
       });
-  });
-  // const wes = user.map((e, i) => {
-  //   return e;
-  // });
+  }, []);
 
   const toggleTab = (index) => {
     setToggleState(index);
@@ -125,64 +103,55 @@ const Profile = () => {
                 }
               >
                 <TabPane tabId="1">
-                  <Row>
-                    <Col sm="12">
-                      <div style={styles.boxCardRecipe}>
-                        <CardSmall
-                          src="https://s3-alpha-sig.figma.com/img/16ad/8dbf/cfef9bb1fc6e0bef50d5c8ef7a6cdff6?Expires=1650844800&Signature=SgZQopFNKrZmxAoeVT-pqDAnIwCJaLClfflK-Zvdr-uLoqbbFnQbLcDwbhbNJCZRhQ7SzUmjpph0uDaYJgrh3vgyaSCocGtLIJZShjF5wkmlOY5Xr1~qecf4PRW9Q3iu9S98D31XuCuhYy-HqsJ0YAIuGf2Qv0dJl4dI~WbcLENoBaIvSNsjUkNGJdYv-8ZJbie-jBfsAc-oRD2P0iOwvv89VXr03zeJW8F1JGM30DbuUOnr0BbsHwIoHWj28uq~tgXqY5bKOkatJf1L41be7o6gsO70IP~uTpCUxOkuli8p0GAf~l21C0pUq71kKoMSkqaNjUuZw44GQ301AbUBsg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
-                          title="Bomb Chicken"
-                          alt="Bomb Chicken"
-                          href="/bombchicken"
-                        />
-                        <CardSmall
-                          src="https://s3-alpha-sig.figma.com/img/3acd/766c/65940ba73f12f048d870dfa487a052df?Expires=1650844800&Signature=S30zooy32ocRs504MQP9gADG3~~F2ZSDFx7byvKuk2CcM51h3MfSaO4ZsBEUiCQ5nHQOzeS8Qq3Hmkn4Ek4UqtKLzczQ0pWM5CSH4dvHRh6Sfgbz8Tn5A2RbyaZflb63FUjJxBreVLR~ajfLPoyMzYu-al8QeHefTnJ3Y6ho6r2bQFnB1xCjZZf2mor70uGnfzpoipivWNm9VQtDirUveOEqU52UJ6TWYyD9r08ncz~5F5Qqcew6g0r8M6sFIVVlHKhqJYA9wT4VNMbjqSnfLfmBXKQgFOsjk8fIn36G8PI3ewd8EaoUty-MlWb00PfSGs-whTcYGFOZSznqqIoNcA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
-                          title="Bananas Pancake"
-                          alt="Bananas Pancake"
-                          href="/bananaspancake"
-                        />
-                      </div>
-                    </Col>
-                  </Row>
+                  <div className="container">
+                    <div className="row" style={styles.boxCardRecipe}>
+                      {recipe.map((e, i) => {
+                        return (
+                          <div className="col" key={i}>
+                            <CardSmall
+                              src={`${process.env.REACT_APP_API_URL}/image/${e.image}`}
+                              title={e.title}
+                              alt={e.title}
+                            />
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
                 </TabPane>
                 <TabPane tabId="2">
-                  <Row>
-                    <Col sm="12">
-                      <div style={styles.boxCardRecipe}>
-                        <CardSmall
-                          src="https://s3-alpha-sig.figma.com/img/16ad/8dbf/cfef9bb1fc6e0bef50d5c8ef7a6cdff6?Expires=1650844800&Signature=SgZQopFNKrZmxAoeVT-pqDAnIwCJaLClfflK-Zvdr-uLoqbbFnQbLcDwbhbNJCZRhQ7SzUmjpph0uDaYJgrh3vgyaSCocGtLIJZShjF5wkmlOY5Xr1~qecf4PRW9Q3iu9S98D31XuCuhYy-HqsJ0YAIuGf2Qv0dJl4dI~WbcLENoBaIvSNsjUkNGJdYv-8ZJbie-jBfsAc-oRD2P0iOwvv89VXr03zeJW8F1JGM30DbuUOnr0BbsHwIoHWj28uq~tgXqY5bKOkatJf1L41be7o6gsO70IP~uTpCUxOkuli8p0GAf~l21C0pUq71kKoMSkqaNjUuZw44GQ301AbUBsg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
-                          title="Bomb Chicken"
-                          alt="Bomb Chicken"
-                          href="/bombchicken"
-                        />
-                        <CardSmall
-                          src="https://s3-alpha-sig.figma.com/img/3acd/766c/65940ba73f12f048d870dfa487a052df?Expires=1650844800&Signature=S30zooy32ocRs504MQP9gADG3~~F2ZSDFx7byvKuk2CcM51h3MfSaO4ZsBEUiCQ5nHQOzeS8Qq3Hmkn4Ek4UqtKLzczQ0pWM5CSH4dvHRh6Sfgbz8Tn5A2RbyaZflb63FUjJxBreVLR~ajfLPoyMzYu-al8QeHefTnJ3Y6ho6r2bQFnB1xCjZZf2mor70uGnfzpoipivWNm9VQtDirUveOEqU52UJ6TWYyD9r08ncz~5F5Qqcew6g0r8M6sFIVVlHKhqJYA9wT4VNMbjqSnfLfmBXKQgFOsjk8fIn36G8PI3ewd8EaoUty-MlWb00PfSGs-whTcYGFOZSznqqIoNcA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
-                          title="Bananas Pancake"
-                          alt="Bananas Pancake"
-                          href="/bananaspancake"
-                        />
-                      </div>
-                    </Col>
-                  </Row>
+                  <div className="container">
+                    <div className="row" style={styles.boxCardRecipe}>
+                      {recipe.map((e, i) => {
+                        return (
+                          <div className="col" key={i}>
+                            <CardSmall
+                              // src={`${process.env.REACT_APP_API_URL}/image/${e.image}`}
+                              title={e.title}
+                              alt={e.title}
+                            />
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
                 </TabPane>
                 <TabPane tabId="3">
-                  <Row>
-                    <Col sm="12">
-                      <div style={styles.boxCardRecipe}>
-                        <CardSmall
-                          src="https://s3-alpha-sig.figma.com/img/16ad/8dbf/cfef9bb1fc6e0bef50d5c8ef7a6cdff6?Expires=1650844800&Signature=SgZQopFNKrZmxAoeVT-pqDAnIwCJaLClfflK-Zvdr-uLoqbbFnQbLcDwbhbNJCZRhQ7SzUmjpph0uDaYJgrh3vgyaSCocGtLIJZShjF5wkmlOY5Xr1~qecf4PRW9Q3iu9S98D31XuCuhYy-HqsJ0YAIuGf2Qv0dJl4dI~WbcLENoBaIvSNsjUkNGJdYv-8ZJbie-jBfsAc-oRD2P0iOwvv89VXr03zeJW8F1JGM30DbuUOnr0BbsHwIoHWj28uq~tgXqY5bKOkatJf1L41be7o6gsO70IP~uTpCUxOkuli8p0GAf~l21C0pUq71kKoMSkqaNjUuZw44GQ301AbUBsg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
-                          title="Bomb Chicken"
-                          alt="Bomb Chicken"
-                          href="/bombchicken"
-                        />
-                        <CardSmall
-                          src="https://s3-alpha-sig.figma.com/img/3acd/766c/65940ba73f12f048d870dfa487a052df?Expires=1650844800&Signature=S30zooy32ocRs504MQP9gADG3~~F2ZSDFx7byvKuk2CcM51h3MfSaO4ZsBEUiCQ5nHQOzeS8Qq3Hmkn4Ek4UqtKLzczQ0pWM5CSH4dvHRh6Sfgbz8Tn5A2RbyaZflb63FUjJxBreVLR~ajfLPoyMzYu-al8QeHefTnJ3Y6ho6r2bQFnB1xCjZZf2mor70uGnfzpoipivWNm9VQtDirUveOEqU52UJ6TWYyD9r08ncz~5F5Qqcew6g0r8M6sFIVVlHKhqJYA9wT4VNMbjqSnfLfmBXKQgFOsjk8fIn36G8PI3ewd8EaoUty-MlWb00PfSGs-whTcYGFOZSznqqIoNcA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
-                          title="Bananas Pancake"
-                          alt="Bananas Pancake"
-                          href="/bananaspancake"
-                        />
-                      </div>
-                    </Col>
-                  </Row>
+                  <div className="container">
+                    <div className="row" style={styles.boxCardRecipe}>
+                      {recipe.map((e, i) => {
+                        return (
+                          <div className="col" key={i}>
+                            <CardSmall
+                              // src={`${process.env.REACT_APP_API_URL}/image/${e.image}`}
+                              title={e.title}
+                              alt={e.title}
+                            />
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
                 </TabPane>
               </TabContent>
             </div>
