@@ -41,6 +41,23 @@ const Profile = () => {
       });
   }, []);
 
+  useEffect(() => {
+    const getToken = localStorage.getItem('token');
+    // const getUser = localStorage.getItem('user');
+    console.log(getToken);
+    axios
+      .delete(`${process.env.REACT_APP_API_URL}/recipe/${getIdRecipe}`, {
+        headers: {
+          token: getToken
+        }
+      })
+      .then((response) => {
+        setRecipe(response.data.data);
+        console.log(response);
+        navigate('/profile');
+      });
+  }, []);
+
   const toggleTab = (index) => {
     setToggleState(index);
   };
@@ -112,7 +129,7 @@ const Profile = () => {
                     <div className="row" style={styles.boxCardRecipe}>
                       {recipe.map((e, i) => {
                         return (
-                          <div className="col" key={i}>
+                          <div className="col-md-4" key={i}>
                             <div style={styles.boxCardRecipeProfile}>
                               <Link to={`/item/${e.id}`}>
                                 <CardSmall
@@ -126,7 +143,7 @@ const Profile = () => {
                                 <Link to="/edit">
                                   <Edit />
                                 </Link>
-                                <Link to="/edit">
+                                <Link to={`/delete/${e.id}`}>
                                   <Delete />
                                 </Link>
                               </div>
