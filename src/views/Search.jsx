@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { BiSearch } from 'react-icons/bi';
 
@@ -8,9 +8,17 @@ import CardResult from '../components/CardResult/CardResult';
 import styles from '../assets/styles/views/search.module.css';
 
 const Search = () => {
+  const navigate = useNavigate();
   const { id } = useParams();
 
   const [getRecipe, setGetRecipe] = useState([]);
+
+  const getToken = localStorage.getItem('token');
+  const getUser = localStorage.getItem('user');
+
+  if (!getToken || !getUser) {
+    navigate('/login');
+  }
 
   useEffect(() => {
     axios
