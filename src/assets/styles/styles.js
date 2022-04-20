@@ -1,24 +1,6 @@
 import { COLORS } from '../../utils/colors';
 
 const styles = {
-  nav: {
-    fontSize: '18px',
-    fontWeight: '500',
-    padding: '10px',
-    position: 'fixed',
-    width: '100%',
-    zIndex: '1',
-    backgroundColor: COLORS.primryColor
-    // fontFamily: 'airbnb'
-  },
-  navtext: {
-    color: COLORS.textPrimaryColor,
-    marginLeft: '50px'
-  },
-  navIcon: {
-    fontSize: '35px',
-    marginRight: '10px'
-  },
   footerContainer: {
     position: 'relative',
     width: '100%',

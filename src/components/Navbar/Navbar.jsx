@@ -9,23 +9,32 @@ import {
   NavLink
 } from 'reactstrap';
 import { BiUserCircle } from 'react-icons/bi';
-import styles from '../../assets/styles/styles';
+import styles from '../../assets/styles/components/navbar/navbar.module.css';
 
 const NavbarComponent = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [user, setUser] = useState({});
+  const [navbar, setNavbar] = useState(false);
 
   useEffect(() => {
     const getUser = localStorage.getItem('user');
     setUser(JSON.parse(getUser));
   }, []);
 
+  const changeBackground = () => {
+    if (window.scrollY >= 30) {
+      setNavbar(true);
+    } else {
+      setNavbar(false);
+    }
+  };
+  window.addEventListener('scroll', changeBackground);
+
   return (
-    <div>
+    <>
       <Navbar
-        style={styles.nav}
-        className="shadow-sm"
-        // color="success"
+        className={navbar ? styles.navActive : styles.nav}
+        // color={window.screenTop < 0 ? 'danger' : 'white'}
         expand="md"
         light
       >
@@ -43,17 +52,17 @@ const NavbarComponent = () => {
             style={{ display: 'flex', justifyContent: 'space-around' }}
           >
             <NavItem>
-              <NavLink href="/" style={styles.navtext}>
+              <NavLink href="/" className={styles.navText}>
                 Home
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/addrecipe" style={styles.navtext}>
+              <NavLink href="/addrecipe" className={styles.navText}>
                 Add Recipe
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/profile" style={styles.navtext}>
+              <NavLink href="/profile" className={styles.navText}>
                 Profile
               </NavLink>
             </NavItem>
@@ -61,15 +70,22 @@ const NavbarComponent = () => {
             <NavItem
               style={isOpen ? {} : { position: 'absolute', right: '100px' }}
             >
-              <NavLink href="/login">
-                <BiUserCircle style={styles.navIcon}>?</BiUserCircle>
+              <NavLink
+                href="/login"
+                className={navbar ? styles.iconTextActive : styles.iconText}
+              >
+                <BiUserCircle
+                  className={navbar ? styles.navIconActive : styles.navIcon}
+                >
+                  ?
+                </BiUserCircle>
                 Login
               </NavLink>
             </NavItem>
           </Nav>
         </Collapse>
       </Navbar>
-    </div>
+    </>
   );
 };
 
