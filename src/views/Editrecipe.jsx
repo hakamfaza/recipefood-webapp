@@ -6,6 +6,7 @@ import ButtonComponents from '../components/ButtonComponent/ButtonComponent';
 import Footer from '../components/Footer/Footer';
 
 const EditRecipe = () => {
+  window.scrollTo(0, 0);
   return (
     <>
       <Navbar />

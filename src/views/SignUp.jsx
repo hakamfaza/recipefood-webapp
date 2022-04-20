@@ -51,10 +51,9 @@ const SignUp = () => {
           headers: { 'Content-Type': 'multipart/form-data' }
         })
         .then((response) => {
-          console.log(response.data);
           localStorage.setItem('token', response.data.data.token);
           localStorage.setItem('user', JSON.stringify(response.data.data.user));
-          // navigate('/profile');
+          navigate('/profile');
         })
         .catch((err) => {
           console.log(err);
@@ -83,14 +82,14 @@ const SignUp = () => {
               style={styles.formWidth}
               onSubmit={(e) => onSubmit(e)}
             >
-              <InputAuth
+              {/* <InputAuth
                 title="Photo"
                 for="photo"
                 id="photo"
                 name="photo"
                 type="file"
                 onChange={(e) => onChangeInput(e, 'name')}
-              />
+              /> */}
               <InputAuth
                 title="Name"
                 for="name"

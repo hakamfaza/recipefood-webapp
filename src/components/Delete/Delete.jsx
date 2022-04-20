@@ -11,14 +11,3 @@ const Delete = () => {
 };
 
 export default Delete;
-
-// <div style={styles.boxActionRecipe}>
-//   <a href={params.edit}>
-//     <FiEdit style={styles.editeIconCard} />
-//   </a>
-//   <NavItem>
-//     <NavLink onClick={params.onClick}>
-//       <MdOutlineDelete style={styles.deleteIcon} />
-//     </NavLink>
-//   </NavItem>
-// </div>;
