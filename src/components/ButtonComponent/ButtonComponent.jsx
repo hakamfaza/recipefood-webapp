@@ -9,7 +9,7 @@ const ButtonComponents = (params) => {
       <Button
         style={(styles.buttonSubmit, params.style)}
         type="submit"
-        className="btn-shadow"
+        className={('btn-shadow', params.className)}
       >
         {params.title}
       </Button>

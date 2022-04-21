@@ -1,0 +1,141 @@
+.auth {
+  position: relative;
+  display: flex!;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.containerAuthLogo {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(239, 200, 26, 0.7),
+      rgba(239, 200, 26, 0.7)
+    ),
+    url('https://s3-alpha-sig.figma.com/img/86b2/055d/76c7e3577554580136d5f65222046a21?Expires=1650844800&Signature=KohSGDqTJy4D1hB~ifM2Auem4N~dRnmCYMHoqrbx6L1hlUp07BtAI2mAJNDwP5b7O1XKW8834TuhSFSWYBRY46tmpVLMr6F~qlOD6fvlOcre4ecae9HFTagCRVWI-NqXFQxE-xi-a9AY6iRUoEwfaBtVKR~XHvd4MBxCg4OTpEYx7u4EaHXbCF08vQYtShxqz2P6OzrQOdAKy3S4V0sysVjkBA2qzxwhn2bCNuSICSP3wllcEcZBWyfVVfKiRLBcnQn-kN39827oMGYTTxDs9oAboyBg66fvENWhPQ6C53tCSl4kTsX6NBODenBO1yqimaCqTdNnE26Lp-9PM4dG4Q__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA');
+  background-repeat: no-repeat;
+  background-size: cover;
+  object-fit: cover;
+  height: 100vh;
+  width: 100%;
+  margin: 0px !important;
+}
+
+.logo {
+  width: 180px;
+  height: 180px;
+}
+
+.titleLogo {
+  color: #fff;
+  margin-top: 15px;
+  font-weight: 500;
+  font-size: 18px;
+  font: airbnb;
+}
+
+.formInput {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  position: absolute;
+  right: 0;
+}
+
+.authTitle {
+  color: #efc81a !important;
+  font-weight: bold !important;
+  font-family: airbnb;
+}
+
+.authTxt {
+  color: #8692a6;
+  margin: 20px 0 30px 0;
+}
+
+.formWidth {
+  width: 45%;
+}
+
+.check {
+  accent-color: #efc81a !important;
+}
+
+.checkboxAuth {
+  position: relative;
+  display: flex !important;
+}
+
+.textChecbox {
+  color: #696f79;
+  font-size: 14px;
+}
+
+.buttonSubmit {
+  width: 100%;
+  background-color: #efc81a !important;
+  height: 40px;
+  border: none;
+  margin-top: 30px;
+  border: none !important;
+}
+.txtForgotPassword {
+  display: flex;
+  justify-content: end;
+  color: #8692a6;
+  margin-top: 16px;
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.txtAuth {
+  color: #8692a6;
+  margin-top: 24px;
+  font-size: 13px;
+}
+
+.txtAuthAction {
+  font-size: 13px;
+  text-decoration: none;
+  color: #efc81a;
+}
+
+.containerSignUp {
+  position: relative;
+  height: 120vh;
+}
+
+.positionJumbotron {
+  position: fixed;
+  width: 50%;
+  height: 100vh;
+  z-index: 99;
+}
+
+.authSignup {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 120vh;
+}
+
+@media screen and (max-width: 576px) {
+  .positionJumbotron {
+    display: none;
+  }
+  .formWidth {
+    width: 70%;
+  }
+}

@@ -42,6 +42,7 @@ const Profile = () => {
   }, []);
 
   useEffect(() => {
+    //Mountod
     const getToken = localStorage.getItem('token');
     // const getUser = localStorage.getItem('user');
     console.log(getToken);

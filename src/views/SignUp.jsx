@@ -6,9 +6,9 @@ import AuthJumbotron from '../components/AuthJumbotron/AuthJumbotron';
 import InputAuth from '../components/Input/Input';
 import ButtonComponent from '../components/ButtonComponent/ButtonComponent';
 
-import styles from '../assets/styles/styles';
+import styles from '../assets/styles/views/auth.module.css';
 import '../assets/styles/style.css';
-import checkbox from '../assets/styles/style.module.css';
+
 import { useNavigate } from 'react-router-dom';
 
 // import user from '../assets/img/user.png';
@@ -62,27 +62,26 @@ const SignUp = () => {
   };
 
   return (
-    <div className="container-fluid" style={styles.containerSignUp}>
+    <div className={(styles.containerSignUp, 'container-fluid')}>
       <div className="row">
-        <div className="col-sm">
-          <div style={styles.positionJumbotron}>
+        <div className="col-sm col-md">
+          <div className={styles.positionJumbotron}>
             <AuthJumbotron />
           </div>
         </div>
-        <div className="col-sm" style={styles.authSignup}>
-          <div style={styles.formInput}>
-            <h3 className="font" style={styles.authTitle}>
-              Let’s Get Started !
-            </h3>
-            <p style={styles.authTxt}>
-              Create new account to access all features
-            </p>
-            <Form
-              action="/profile"
-              style={styles.formWidth}
-              onSubmit={(e) => onSubmit(e)}
-            >
-              {/* <InputAuth
+        <div className="col-sm col-md">
+          <div className={styles.authSignup}>
+            <div className={styles.formInput}>
+              <h3 className={styles.authTitle}>Let’s Get Started !</h3>
+              <p className={styles.authTxt}>
+                Create new account to access all features
+              </p>
+              <Form
+                action="/profile"
+                className={styles.formWidth}
+                onSubmit={(e) => onSubmit(e)}
+              >
+                {/* <InputAuth
                 title="Photo"
                 for="photo"
                 id="photo"
@@ -90,52 +89,52 @@ const SignUp = () => {
                 type="file"
                 onChange={(e) => onChangeInput(e, 'name')}
               /> */}
-              <InputAuth
-                title="Name"
-                for="name"
-                id="name"
-                name="name"
-                type="name"
-                placeholder="Name"
-                onChange={(e) => onChangeInput(e, 'name')}
-              />
-              <InputAuth
-                title="Email Adsress"
-                for="email"
-                id="email"
-                name="email"
-                type="email"
-                placeholder="Enter email address"
-                onChange={(e) => onChangeInput(e, 'email')}
-              />
-              <InputAuth
-                title="Phone Number"
-                for="number"
-                id="number"
-                name="number"
-                type="number"
-                placeholder="08xxxxxxxxxx"
-                onChange={(e) => onChangeInput(e, 'phone')}
-              />
-              <InputAuth
-                title="Create New Password"
-                for="password"
-                id="password"
-                name="password"
-                type="password"
-                placeholder="Create New Password"
-                onChange={(e) => onChangeInput(e, 'password')}
-              />
-              <InputAuth
-                title="New Password"
-                for="newpassword"
-                id="newpassword"
-                name="newpassword"
-                type="password"
-                placeholder="New Password"
-                onChange={(e) => onChangeInput(e, 'newPassword')}
-              />
-              {/* <p
+                <InputAuth
+                  title="Name"
+                  for="name"
+                  id="name"
+                  name="name"
+                  type="name"
+                  placeholder="Name"
+                  onChange={(e) => onChangeInput(e, 'name')}
+                />
+                <InputAuth
+                  title="Email Adsress"
+                  for="email"
+                  id="email"
+                  name="email"
+                  type="email"
+                  placeholder="Enter email address"
+                  onChange={(e) => onChangeInput(e, 'email')}
+                />
+                <InputAuth
+                  title="Phone Number"
+                  for="number"
+                  id="number"
+                  name="number"
+                  type="text"
+                  placeholder="08xxxxxxxxxx"
+                  onChange={(e) => onChangeInput(e, 'phone')}
+                />
+                <InputAuth
+                  title="Create New Password"
+                  for="password"
+                  id="password"
+                  name="password"
+                  type="password"
+                  placeholder="Create New Password"
+                  onChange={(e) => onChangeInput(e, 'password')}
+                />
+                <InputAuth
+                  title="New Password"
+                  for="newpassword"
+                  id="newpassword"
+                  name="newpassword"
+                  type="password"
+                  placeholder="New Password"
+                  onChange={(e) => onChangeInput(e, 'newPassword')}
+                />
+                {/* <p
                 style={
                   
                     ? styles.errPasword
@@ -145,28 +144,28 @@ const SignUp = () => {
               >
                 password is not the same, please check again!
               </p> */}
-              <FormGroup style={styles.checkboxAuth} check>
-                <Label style={styles.textChecbox} check>
-                  <Input
-                    type="checkbox"
-                    style={(checkbox.check, styles.check)}
-                    className="check"
-                    required
-                  />{' '}
-                  I agree to terms & conditions
-                </Label>
-              </FormGroup>
-              <ButtonComponent
-                style={styles.buttonSubmit}
-                title="Register Account"
-              />
-            </Form>
-            <p style={styles.txtAuth}>
-              Already have account?{' '}
-              <a style={styles.txtAuthAction} href="/login">
-                Log in Here
-              </a>
-            </p>
+                <FormGroup className={styles.checkboxAuth} check>
+                  <Label className={styles.textChecbox} check>
+                    <Input
+                      type="checkbox"
+                      className={(styles.check, 'check')}
+                      required
+                    />{' '}
+                    I agree to terms & conditions
+                  </Label>
+                </FormGroup>
+                <ButtonComponent
+                  className={styles.buttonSubmit}
+                  title="Register Account"
+                />
+              </Form>
+              <p className={styles.txtAuth}>
+                Already have account?{' '}
+                <a className={styles.txtAuthAction} href="/login">
+                  Log in Here
+                </a>
+              </p>
+            </div>
           </div>
         </div>
       </div>

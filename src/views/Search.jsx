@@ -15,9 +15,7 @@ const Search = () => {
   const getQuery = queryParams.get('q');
 
   const [getRecipe, setGetRecipe] = useState([]);
-  const [searchRecipe, setSearchRecipe] = useState({
-    title: ''
-  });
+  const [searchRecipe, setSearchRecipe] = useState('');
 
   const getToken = localStorage.getItem('token');
   const getUser = localStorage.getItem('user');
