@@ -1,4 +1,4 @@
-<h1 align="center">Front End with Bootsrap<br>Food Recipe Web App</h1>
+<h1 align="center">Front End with React.js<br>Food Recipe Web App</h1>
 
 # Introduction
 Food Recipes is a website that provides interaction between users to share food recipes.
