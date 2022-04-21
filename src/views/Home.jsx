@@ -164,7 +164,7 @@ const Home = () => {
             <div className="row" style={styles.boxOfCard}>
               {recipe.map((e, i) => {
                 return (
-                  <div className="col-sm" key={i}>
+                  <div className="col-md-4" key={i}>
                     <Link to={`/item/${e.id}`}>
                       <Card
                         src={`${process.env.REACT_APP_API_URL}/image/${e.image}`}

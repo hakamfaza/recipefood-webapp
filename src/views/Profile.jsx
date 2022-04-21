@@ -53,7 +53,6 @@ const Profile = () => {
       })
       .then((response) => {
         setRecipe(response.data.data);
-        console.log(response);
         navigate('/profile');
       });
   }, []);
