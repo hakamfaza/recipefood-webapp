@@ -132,11 +132,6 @@ const styles = {
     position: 'relative',
     width: '320px'
   },
-  boxActionRecipe: {
-    position: 'absolute',
-    bottom: '10px',
-    right: '10px'
-  },
   containerAuth: {
     height: '100vh'
   },
@@ -427,63 +422,6 @@ const styles = {
   },
 
   // Styles Profile
-  profile: {
-    postition: 'relative'
-  },
-  containerProfile: {
-    position: 'relative'
-  },
-  boxUserProfile: {
-    position: 'relative',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: '100px'
-  },
-  userProfile: {
-    position: 'relative',
-    width: '200px',
-    height: '200px',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    flexDirection: 'column'
-  },
-  userImage: {
-    height: '150px',
-    width: '150px',
-    borderRadius: '50%',
-    objectFit: 'cover'
-  },
-  iconLink: {
-    position: 'absolute',
-    bottom: '30px',
-    right: '20px'
-  },
-  editIcon: {
-    fontSize: '20px',
-    color: COLORS.secondaryColor
-  },
-  titleUserProfile: {
-    fontSize: '26px',
-    fontWeight: 'bold'
-  },
-  boxRecipeAction: {
-    marginTop: '80px'
-  },
-  titleRecipeAction: {
-    border: 'none'
-  },
-  boxCardRecipe: {
-    display: 'flex',
-    marginTop: '20px',
-    marginBottom: '100px'
-  },
-  recipeAction: {
-    border: 'none',
-    cursor: 'pointer'
-  },
 
   // Add Recipe
   containerAddRecipe: {

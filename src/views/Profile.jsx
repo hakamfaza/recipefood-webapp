@@ -1,13 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import Navbar from '../components/Navbar/Navbar';
-import { FiEdit } from 'react-icons/fi';
-import { Nav, NavItem, NavLink, TabContent, TabPane } from 'reactstrap';
+import axios from 'axios';
+import {
+  Nav,
+  NavItem,
+  NavLink,
+  TabContent,
+  TabPane,
+  Button,
+  Form
+} from 'reactstrap';
 
-import styles from '../assets/styles/styles';
+import Navbar from '../components/Navbar/Navbar';
 import CardSmall from '../components/CardSmall/CardSmall';
 import Footer from '../components/Footer/Footer';
-import axios from 'axios';
+
+import styles from '../assets/styles/views/profile.module.css';
+import { FiEdit } from 'react-icons/fi';
 
 import Delete from '../components/Delete/Delete';
 import Edit from '../components/Edit/Edit';
@@ -20,7 +29,6 @@ const Profile = () => {
   const [toggleState, setToggleState] = useState(1);
 
   const [getIdRecipe, setIdRecipe] = useState([]);
-  console.log(getIdRecipe);
 
   useEffect(() => {
     const getToken = localStorage.getItem('token');
@@ -41,11 +49,8 @@ const Profile = () => {
       });
   }, []);
 
-  useEffect(() => {
-    //Mountod
+  const deleteRecipe = () => {
     const getToken = localStorage.getItem('token');
-    // const getUser = localStorage.getItem('user');
-    console.log(getToken);
     axios
       .delete(`${process.env.REACT_APP_API_URL}/recipe/${getIdRecipe}`, {
         headers: {
@@ -56,7 +61,7 @@ const Profile = () => {
         setRecipe(response.data.data);
         navigate('/profile');
       });
-  }, []);
+  };
 
   const toggleTab = (index) => {
     setToggleState(index);
@@ -66,105 +71,120 @@ const Profile = () => {
     <>
       <Navbar />
       <section>
-        <div className="container" style={styles.containerProfile}>
-          <div className="row">
-            <div className="col-sm" style={styles.boxUserProfile}>
-              <div style={styles.userProfile}>
-                <img
-                  src={`${process.env.REACT_APP_API_URL}/image/${user.photo}`}
-                  alt="User Profile"
-                  style={styles.userImage}
-                />
-                <a href="profile" style={styles.iconLink}>
-                  <FiEdit style={styles.editIcon} />
-                </a>
+        <div className="container">
+          <div className={styles.containerProfile}>
+            <div className="row">
+              <div className="col-sm">
+                <div className={styles.boxUserProfile}>
+                  <div className={styles.userProfile}>
+                    <img
+                      src={`${process.env.REACT_APP_API_URL}/image/${user.photo}`}
+                      alt="User Profile"
+                      className={styles.userImage}
+                    />
+                    <a href="profile" className={styles.iconLink}>
+                      <FiEdit className={styles.editIcon} />
+                    </a>
+                  </div>
+                  <h1 className={styles.titleUserProfile}>{user.name}</h1>
+                </div>
               </div>
-              <h1 className="font" style={styles.titleUserProfile}>
-                {user.name}
-              </h1>
             </div>
-          </div>
 
-          <div className="row" style={styles.boxRecipeAction}>
-            <div className="col-sm">
-              <Nav style={styles.titleRecipeAction} tabs>
-                <NavItem className="font txt-profileaction">
-                  <NavLink
-                    className={toggleState === 1 ? 'active' : ''}
-                    onClick={() => toggleTab(1)}
-                    style={styles.recipeAction}
-                  >
-                    My Recipe
-                  </NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink
-                    className={toggleState === 2 ? 'active' : ''}
-                    onClick={() => toggleTab(2)}
-                    style={styles.recipeAction}
-                  >
-                    Saved Recipe
-                  </NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink
-                    className={toggleState === 3 ? 'active' : ''}
-                    onClick={() => toggleTab(3)}
-                    style={styles.recipeAction}
-                  >
-                    Liked Recipe
-                  </NavLink>
-                </NavItem>
-              </Nav>
+            <div className={styles.boxRecipeAction}>
+              <div className="row">
+                <div className="col-sm">
+                  <Nav className={styles.titleRecipeAction} tabs>
+                    <NavItem className="font txt-profileaction">
+                      <NavLink
+                        className={toggleState === 1 ? styles.recipeAction : ''}
+                        onClick={() => toggleTab(1)}
+                      >
+                        My Recipe
+                      </NavLink>
+                    </NavItem>
+                    <NavItem>
+                      <NavLink
+                        className={toggleState === 2 ? styles.recipeAction : ''}
+                        onClick={() => toggleTab(2)}
+                      >
+                        Saved Recipe
+                      </NavLink>
+                    </NavItem>
+                    <NavItem>
+                      <NavLink
+                        className={toggleState === 3 ? styles.recipeAction : ''}
+                        onClick={() => toggleTab(3)}
+                      >
+                        Liked Recipe
+                      </NavLink>
+                    </NavItem>
+                  </Nav>
 
-              <hr />
+                  <hr />
 
-              <TabContent
-                activeTab={
-                  toggleState === 1 ? '1' : toggleState === 2 ? '2' : '3'
-                }
-              >
-                <TabPane tabId="1">
-                  <div className="container">
-                    <div className="row" style={styles.boxCardRecipe}>
-                      {recipe.map((e, i) => {
-                        return (
-                          <div className="col-md-4" key={i}>
-                            <div style={styles.boxCardRecipeProfile}>
-                              <Link to={`/item/${e.id}`}>
-                                <CardSmall
-                                  src={`${process.env.REACT_APP_API_URL}/image/${e.image}`}
-                                  title={e.title}
-                                  alt={e.title}
-                                  edit="/edit"
-                                />
-                              </Link>
-                              <div style={styles.boxActionRecipe}>
-                                <Link to="/edit">
-                                  <Edit />
-                                </Link>
-                                <Link to={`/delete/${e.id}`}>
-                                  <Delete />
-                                </Link>
-                              </div>
-                            </div>
+                  <TabContent
+                    activeTab={
+                      toggleState === 1 ? '1' : toggleState === 2 ? '2' : '3'
+                    }
+                  >
+                    <TabPane tabId="1">
+                      <div className="container">
+                        <div className={styles.boxCardRecipe}>
+                          <div className="row">
+                            {recipe &&
+                              recipe.map((e, i) => {
+                                return (
+                                  <div className="col-md-4" key={i}>
+                                    <div
+                                      className={styles.boxCardRecipeProfile}
+                                    >
+                                      <Link to={`/item/${e.id}`}>
+                                        <CardSmall
+                                          src={`${process.env.REACT_APP_API_URL}/image/${e.image}`}
+                                          title={e.title}
+                                          alt={e.title}
+                                          edit="/edit"
+                                        />
+                                      </Link>
+                                      <div className={styles.boxActionRecipe}>
+                                        <Link to="/edit">
+                                          <Edit />
+                                        </Link>
+                                        <Form onClick={() => setIdRecipe(e.id)}>
+                                          <Button
+                                            className={styles.btn}
+                                            onClick={() => deleteRecipe()}
+                                          >
+                                            <Delete />
+                                          </Button>
+                                        </Form>
+                                      </div>
+                                    </div>
+                                  </div>
+                                );
+                              })}
                           </div>
-                        );
-                      })}
-                    </div>
-                  </div>
-                </TabPane>
-                <TabPane tabId="2">
-                  <div className="container">
-                    <div className="row" style={styles.boxCardRecipe}></div>
-                  </div>
-                </TabPane>
-                <TabPane tabId="3">
-                  <div className="container">
-                    <div className="row" style={styles.boxCardRecipe}></div>
-                  </div>
-                </TabPane>
-              </TabContent>
+                        </div>
+                      </div>
+                    </TabPane>
+                    <TabPane tabId="2">
+                      <div className="container">
+                        <div className={styles.boxCardRecipe}>
+                          <div className="row"></div>
+                        </div>
+                      </div>
+                    </TabPane>
+                    <TabPane tabId="3">
+                      <div className="container">
+                        <div className={styles.boxCardRecipe}>
+                          <div className="row"></div>
+                        </div>
+                      </div>
+                    </TabPane>
+                  </TabContent>
+                </div>
+              </div>
             </div>
           </div>
         </div>

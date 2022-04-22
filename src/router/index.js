@@ -9,7 +9,6 @@ import SignUp from '../views/SignUp';
 import Profile from '../views/Profile';
 import Search from '../views/Search';
 import EditRecipe from '../views/Editrecipe';
-import Delete from '../views/Delete';
 
 const router = () => {
   return (
@@ -25,7 +24,6 @@ const router = () => {
           <Route path="/profile" element={<Profile />} />
           <Route path="/search" element={<Search />} />
           <Route path="/edit" element={<EditRecipe />} />
-          <Route path="/delete/:id" element={<Delete />} />
         </Route>
       </Routes>
     </BrowserRouter>
