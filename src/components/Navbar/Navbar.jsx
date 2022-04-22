@@ -6,18 +6,34 @@ import {
   Collapse,
   Nav,
   NavItem,
-  NavLink
+  NavLink,
+  Button
 } from 'reactstrap';
 import { BiUserCircle } from 'react-icons/bi';
+import { AiOutlineLogout } from 'react-icons/ai';
 import styles from '../../assets/styles/components/navbar/navbar.module.css';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const NavbarComponent = () => {
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [user, setUser] = useState({});
   const [navbar, setNavbar] = useState(false);
+  const [getToken, setToken] = useState(true);
+
+  const alert = getToken
+    ? console.log('ada token')
+    : console.log('tidak ada token');
+
+  console.log(alert);
 
   useEffect(() => {
     const getUser = localStorage.getItem('user');
+    const getToken = localStorage.getItem('token');
+    setToken(getToken);
+
+    setUser(JSON.parse(getUser));
+
     setUser(JSON.parse(getUser));
   }, []);
 
@@ -29,6 +45,11 @@ const NavbarComponent = () => {
     }
   };
   window.addEventListener('scroll', changeBackground);
+
+  const logOut = () => {
+    localStorage.clear();
+    navigate('/login');
+  };
 
   return (
     <>
@@ -69,6 +90,7 @@ const NavbarComponent = () => {
 
             <NavItem
               style={isOpen ? {} : { position: 'absolute', right: '100px' }}
+              className={getToken ? styles.display : ''}
             >
               <NavLink
                 href="/login"
@@ -80,6 +102,25 @@ const NavbarComponent = () => {
                   ?
                 </BiUserCircle>
                 Login
+              </NavLink>
+            </NavItem>
+
+            <NavItem
+              style={isOpen ? {} : { position: 'absolute', right: '100px' }}
+              className={getToken ? '' : styles.display}
+            >
+              <NavLink
+                className={navbar ? styles.iconTextActive : styles.iconText}
+                onClick={() => logOut()}
+              >
+                <AiOutlineLogout
+                  className={
+                    navbar ? styles.navIconLogActive : styles.navIconLogout
+                  }
+                >
+                  ?
+                </AiOutlineLogout>
+                Logout
               </NavLink>
             </NavItem>
           </Nav>
