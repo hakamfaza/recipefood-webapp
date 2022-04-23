@@ -127,11 +127,6 @@ const styles = {
     fontSize: '10px',
     color: '#AAAAAA'
   },
-
-  boxCardRecipeProfile: {
-    position: 'relative',
-    width: '320px'
-  },
   containerAuth: {
     height: '100vh'
   },
@@ -381,15 +376,6 @@ const styles = {
     maxHeight: '200px',
     width: '100%'
   },
-  buttonPost: {
-    marginTop: '50px',
-    width: '300px',
-    height: '40px',
-    backgroundColor: COLORS.secondaryColor,
-    border: 'none',
-    color: COLORS.primryColor,
-    borderRadius: '3px'
-  },
   boxUserComment: {
     position: 'relative',
     marginTop: '30px'
@@ -424,54 +410,7 @@ const styles = {
   // Styles Profile
 
   // Add Recipe
-  containerAddRecipe: {
-    position: 'relative'
-  },
-  boxAddRecipe: {
-    position: 'relative',
-    marginBottom: '100px',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center'
-  },
-  inputImage: {
-    marginTop: '150px',
-    width: '100%',
-    height: '300px',
-    backgroundColor: '#F6F5F4',
-    borderRadius: '5px'
-  },
-  titleInput: {
-    height: '60px',
-    border: 'none',
-    backgroundColor: '#F6F5F4',
-    borderRadius: '5px',
-    width: '100%',
-    marginTop: '50px',
-    paddingLeft: '20px'
-  },
-  ingredientsInput: {
-    minHeight: '250px',
-    border: 'none',
-    backgroundColor: '#F6F5F4',
-    borderRadius: '10px',
-    width: '100%',
-    marginTop: '50px',
-    paddingLeft: '20px',
-    paddingTop: '20px'
-  },
-  errPasword: {
-    fontSize: '12px',
-    display: 'none',
-    marginTop: '-12px',
-    color: 'red'
-  },
-  displayErrPasword: {
-    fontSize: '12px',
-    display: 'flex',
-    marginTop: '-12px',
-    color: 'red'
-  },
+
   // buttonPost: {
   //   height: '30px',
 

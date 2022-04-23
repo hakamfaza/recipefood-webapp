@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from '../components/Navbar/Navbar';
-import styles from '../assets/styles/styles';
+import styles from '../assets/styles/views/addrecipe.module.css';
 import '../assets/styles/style.css';
 import ButtonComponents from '../components/ButtonComponent/ButtonComponent';
 import Footer from '../components/Footer/Footer';
@@ -10,32 +10,36 @@ const AddRecipe = () => {
     <>
       <Navbar />
       <section>
-        <div className="container" style={styles.containerAddRecipe}>
-          <div className="row">
-            <div className="col-sm" style={styles.boxAddRecipe}>
-              <div style={styles.inputImage}></div>
-              <input
-                type="text"
-                placeholder="Title"
-                className="outlineNone"
-                style={styles.titleInput}
-              />
-              <textarea
-                name="ingredients"
-                id="ingredients"
-                cols="100"
-                rows="10"
-                placeholder="Ingredients"
-                className="outlineNone"
-                style={styles.ingredientsInput}
-              ></textarea>
-              <input
-                type="text"
-                placeholder="Title"
-                className="outlineNone"
-                style={styles.titleInput}
-              />
-              <ButtonComponents title="Post" style={styles.buttonPost} />
+        <div className={styles.containerAddRecipe}>
+          <div className="container">
+            <div className="row">
+              <div className={styles.boxAddRecipe}>
+                <div className="col-sm">
+                  <div className={styles.inputImage}></div>
+                  <input
+                    type="text"
+                    placeholder="Title"
+                    className={('outlineNone', styles.titleInput)}
+                  />
+                  <textarea
+                    name="ingredients"
+                    id="ingredients"
+                    cols="100"
+                    rows="10"
+                    placeholder="Ingredients"
+                    className={('outlineNone', styles.ingredientsInput)}
+                  ></textarea>
+                  <input
+                    type="text"
+                    placeholder="Title"
+                    className={('outlineNone', styles.titleInput)}
+                  />
+                  <ButtonComponents
+                    title="Post"
+                    className={styles.buttonPost}
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
