@@ -47,7 +47,7 @@ const Search = () => {
 
   const onSubmit = (e) => {
     // e.preventDefault();
-    e.currentTarget.reset();
+    // e.currentTarget.reset();
     setTimeout(() => {
       window.location.reload(false);
     }, 0);
@@ -71,6 +71,7 @@ const Search = () => {
               <input
                 type="text"
                 placeholder="search..."
+                defaultValue={getQuery ? getQuery : ''}
                 onChange={(e) => getInput(e, 'title')}
               />
               <div>

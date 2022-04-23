@@ -1,5 +1,5 @@
 .container {
-  padding: 100px;
+  padding: 100px 50px 100px 50px;
   justify-content: space-around !important;
 }
 
@@ -67,4 +67,10 @@ input {
 .boxList {
   position: relative;
   /* margin-top: 5px; */
+}
+
+@media screen and (max-width: 576px) {
+  .container {
+    padding: 100px 15% 100px 15%;
+  }
 }
