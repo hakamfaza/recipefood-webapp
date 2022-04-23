@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 
 import styles from '../assets/styles/views/detail.module.css';
@@ -63,9 +63,11 @@ const Detail = () => {
                   <h2 className={styles.titleRecipe}>Ingredients</h2>
                   <p className={styles.ingredients}>{getRecipe.ingredients}</p>
                   <h2 className={styles.titleRecipe}>Detail Vidio</h2>
-                  <button onClick="/" className={styles.playButton}>
-                    <FiPlay />
-                  </button>
+                  <Link to="/vidio">
+                    <button className={styles.playButton}>
+                      <FiPlay />
+                    </button>
+                  </Link>
                 </div>
               </div>
 

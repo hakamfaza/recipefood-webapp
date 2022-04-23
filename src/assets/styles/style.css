@@ -49,3 +49,9 @@
   outline: none;
   box-shadow: none !important;
 }
+
+@media screen and (max-width: 576px) {
+  .bgVidio {
+    display: none;
+  }
+}
