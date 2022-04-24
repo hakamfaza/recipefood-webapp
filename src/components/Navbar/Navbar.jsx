@@ -117,16 +117,7 @@ const NavbarComponent = () => {
               style={isOpen ? {} : { position: 'absolute', right: '100px' }}
               className={getToken ? '' : styles.display}
             >
-              <NavLink
-                className={
-                  navbar
-                    ? styles.iconTextActive
-                    : isOpen
-                    ? styles.iconTextActive
-                    : styles.iconText
-                }
-                onClick={() => logOut()}
-              >
+              <NavLink className={styles.iconText} onClick={() => logOut()}>
                 <AiOutlineLogout
                   className={
                     navbar

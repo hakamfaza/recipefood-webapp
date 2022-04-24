@@ -34,47 +34,36 @@
 .navIcon {
   font-size: 35px;
   margin-right: 10px;
-  color: #fff !important;
+  color: #2e266f !important;
 }
 
 .navIconLogout {
   font-size: 30px;
   margin-right: 10px;
-  color: #fff !important;
-}
-
-.navIconActive {
-  font-size: 35px;
-  margin-right: 10px;
-  color: #efc81a !important;
+  color: #2e266f !important;
 }
 
 .navIconLogActive {
   font-size: 30px;
   margin-right: 10px;
-  color: #efc81a !important;
+  color: #5043b4 !important;
 }
 
 .iconText {
-  color: #fff !important;
-  cursor: pointer;
-}
-
-.iconTextActive {
-  color: #efc81a !important;
+  color: #2e266f !important;
   cursor: pointer;
 }
 
 .navIcon:hover,
 .iconText:hover,
 .navIconLogout:hover {
-  color: #ffe989 !important;
+  color: #7669db !important;
 }
 
 .navIconActive:hover,
 .iconTextActive:hover,
 .navIconLogActive:hover {
-  color: #ffdd44 !important;
+  color: #7669db !important;
 }
 
 .display {
