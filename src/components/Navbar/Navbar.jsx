@@ -21,12 +21,6 @@ const NavbarComponent = () => {
   const [navbar, setNavbar] = useState(false);
   const [getToken, setToken] = useState(true);
 
-  const alert = getToken
-    ? console.log('ada token')
-    : console.log('tidak ada token');
-
-  console.log(alert);
-
   useEffect(() => {
     const getUser = localStorage.getItem('user');
     const getToken = localStorage.getItem('token');
@@ -54,14 +48,16 @@ const NavbarComponent = () => {
   return (
     <>
       <Navbar
-        className={navbar ? styles.navActive : styles.nav}
+        className={
+          navbar ? styles.navActive : isOpen ? styles.navActive : styles.nav
+        }
         // color={window.screenTop < 0 ? 'danger' : 'white'}
         expand="md"
         light
       >
         {/* <NavbarBrand
           href="/"
-          style={isOpen ? { } : { display: 'none' }}
+          style={navbar ? { display: 'contents' } : { display: 'none' }}
         >
           Mama Recipe
         </NavbarBrand> */}
@@ -94,10 +90,22 @@ const NavbarComponent = () => {
             >
               <NavLink
                 href="/login"
-                className={navbar ? styles.iconTextActive : styles.iconText}
+                className={
+                  navbar
+                    ? styles.iconTextActive
+                    : isOpen
+                    ? styles.iconTextActive
+                    : styles.iconText
+                }
               >
                 <BiUserCircle
-                  className={navbar ? styles.navIconActive : styles.navIcon}
+                  className={
+                    navbar
+                      ? styles.navIconActive
+                      : isOpen
+                      ? styles.navIconActive
+                      : styles.navIcon
+                  }
                 >
                   ?
                 </BiUserCircle>
@@ -110,12 +118,22 @@ const NavbarComponent = () => {
               className={getToken ? '' : styles.display}
             >
               <NavLink
-                className={navbar ? styles.iconTextActive : styles.iconText}
+                className={
+                  navbar
+                    ? styles.iconTextActive
+                    : isOpen
+                    ? styles.iconTextActive
+                    : styles.iconText
+                }
                 onClick={() => logOut()}
               >
                 <AiOutlineLogout
                   className={
-                    navbar ? styles.navIconLogActive : styles.navIconLogout
+                    navbar
+                      ? styles.navIconLogActive
+                      : isOpen
+                      ? styles.navIconLogActive
+                      : styles.navIconLogout
                   }
                 >
                   ?
