@@ -27,6 +27,7 @@ const Profile = () => {
   const [user, setUser] = useState({});
   const [recipe, setRecipe] = useState([]);
   const [toggleState, setToggleState] = useState(1);
+  const [isLoading, setIsLoading] = useState(true);
 
   const [getIdRecipe, setIdRecipe] = useState([]);
 
@@ -46,6 +47,7 @@ const Profile = () => {
       })
       .then((response) => {
         setRecipe(response.data.data);
+        setIsLoading(false);
       });
   }, []);
 
@@ -132,9 +134,9 @@ const Profile = () => {
                       <div className="container">
                         <div className={styles.boxCardRecipe}>
                           <div className="row">
-                            {recipe &&
-                              recipe.map((e, i) => {
-                                return (
+                            {isLoading
+                              ? ''
+                              : recipe.map((e, i) => (
                                   <div className="col-md-4" key={i}>
                                     <div
                                       className={styles.boxCardRecipeProfile}
@@ -162,8 +164,7 @@ const Profile = () => {
                                       </div>
                                     </div>
                                   </div>
-                                );
-                              })}
+                                ))}
                           </div>
                         </div>
                       </div>
