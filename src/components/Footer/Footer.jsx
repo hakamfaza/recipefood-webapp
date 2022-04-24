@@ -1,45 +1,43 @@
 import React from 'react';
 import styles from '../../assets/styles/styles';
-import '../../assets/styles/style.css';
+import style from '../../assets/styles/components/footer/footer.module.css';
 
 const Footer = () => {
   return (
     <div className="container-fluid" style={styles.footerContainer}>
       <div className="row">
-        <div className="col-sm"></div>
-        <div className="col-sm" style={styles.titleBox}>
-          <h1 className="font" style={styles.txtTitle}>
-            Eat, Cook, Repeat
-          </h1>
-          <p className="font" style={styles.txtColor}>
+        <div className="col-md-4"></div>
+        <div className="col-md-4" style={styles.titleBox}>
+          <h1 className={style.txtTitle}>Eat, Cook, Repeat</h1>
+          <p className={style.txtColor}>
             Share your best recipe by uploading here !
           </p>
-          <ul style={styles.footerList}>
+          <ul className={style.footerList}>
             <li>
-              <a href="/" style={styles.footerLink}>
+              <a href="/" className={style.footerLink}>
                 Product
               </a>
             </li>
             <li>
-              <a href="/" style={styles.footerLink}>
+              <a href="/" className={style.footerLink}>
                 Company
               </a>
             </li>
             <li>
-              <a href="/" style={styles.footerLink}>
+              <a href="/" className={style.footerLink}>
                 Learn More
               </a>
             </li>
             <li>
-              <a href="/" style={styles.footerLink}>
+              <a href="/" className={style.footerLink}>
                 Get In Touch
               </a>
             </li>
           </ul>
         </div>
-        <div className="col-sm" style={styles.boxTextCreadit}>
+        <div className="col-md-4" style={styles.boxTextCreadit}>
           <div className="boxCreadit">
-            <p style={styles.txtCreadit}>©PijarCamp</p>
+            <p className={style.txtCreadit}>©PijarCamp</p>
           </div>
         </div>
       </div>

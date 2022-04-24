@@ -13,37 +13,14 @@ const styles = {
     flexDirection: 'column',
     alignItems: 'center',
     height: '60vh',
-    color: COLORS.textPrimaryColor
+    color: COLORS.textPrimaryColor,
+    textAlign: 'center'
   },
-  txtTitle: {
-    fontSize: '50px'
-  },
-  txtColor: {
-    color: '#707070'
-  },
-  footerList: {
-    position: 'absolute',
-    bottom: '0px',
-    display: 'flex',
-    fontSize: '14px',
-    justifyContent: 'space-around',
-    width: '30%',
-    padding: '12px',
-    listStyleType: 'none'
-  },
-  footerLink: {
-    textDecoration: 'none',
-    color: '#707070'
-  },
+
   boxTextCreadit: {
     display: 'flex',
     flexDirection: 'center',
     justifyContent: 'center'
-  },
-  txtCreadit: {
-    position: 'absolute',
-    bottom: '12px',
-    textAlign: 'center'
   },
 
   cardSmall: {
