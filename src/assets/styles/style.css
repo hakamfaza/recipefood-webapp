@@ -54,4 +54,9 @@
   .bgVidio {
     display: none;
   }
+  .none {
+    display: none;
+    height: 100vh;
+    background-color: #efc81a;
+  }
 }

@@ -1,20 +1,18 @@
 import React from 'react';
-import styles from '../../assets/styles/styles';
-import '../../assets/styles/style.css';
+import styles from '../../assets/styles/components/card/card.module.css';
+// import '../../assets/styles/components/card/card.module.css';
 
 const CardMedium = (params) => {
   return (
     <>
       <a href={params.href}>
-        <div style={styles.cardMedium}>
+        <div className={styles.cardMedium}>
           <img
             src={params.src}
             alt={params.alt}
-            style={styles.cardImageMedium}
+            className={styles.cardImageMedium}
           />
-          <h2 style={styles.cardTitleMedium} className="font">
-            {params.title}
-          </h2>
+          <h2 className={styles.cardTitleMedium}>{params.title}</h2>
         </div>
       </a>
     </>

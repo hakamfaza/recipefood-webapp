@@ -45,48 +45,7 @@ const styles = {
     bottom: '12px',
     textAlign: 'center'
   },
-  cardContainer: {
-    position: 'relative',
-    width: '300px',
-    height: '300px',
-    // border: 'solid 1px #707070',
-    borderRadius: '15px',
-    marginBottom: '30px',
-    marginTop: '30px'
-  },
-  cardImage: {
-    width: '300px',
-    height: '300px',
-    objectFit: 'cover',
-    borderRadius: '15px'
-  },
-  cardTitle: {
-    position: 'absolute',
-    width: '170px',
-    left: '15px',
-    bottom: '10px',
-    fontWeight: '600',
-    color: '#3F3A3A'
-  },
-  cardMedium: {
-    position: 'relative',
-    height: '450px',
-    width: '450px'
-  },
-  cardImageMedium: {
-    width: '450px',
-    height: '450px',
-    objectFit: 'cover',
-    borderRadius: '15px'
-  },
-  cardTitleMedium: {
-    position: 'absolute',
-    width: '105px',
-    left: '25px',
-    color: COLORS.primryColor,
-    bottom: '10px',
-    fontWeight: '600'
-  },
+
   cardSmall: {
     position: 'relative',
     height: '200px',
@@ -156,142 +115,6 @@ const styles = {
     width: '100%'
   },
 
-  containerHome: {
-    position: 'relative'
-  },
-  bgContent: {
-    height: '100vh',
-    backgroundColor: COLORS.primryColor
-  },
-  bgDecoration: {
-    height: '100vh',
-    backgroundColor: COLORS.secondaryColor
-  },
-  boxAction: {
-    position: 'absolute',
-    top: '250px',
-    left: '100px',
-    justifyContent: 'center',
-    flexDirection: 'row'
-  },
-  content: {
-    width: '100%',
-    display: 'flex',
-    flexDirection: 'column'
-  },
-  titleContent: {
-    fontSize: '55px',
-    color: '#2E266F',
-    width: '80%'
-  },
-  search: {
-    position: 'relative',
-    display: 'flex',
-    alignItems: 'center',
-    width: '100%'
-  },
-  iconSearch: {
-    fontSize: '35px',
-    position: 'absolute',
-    left: '5px',
-    top: '25px'
-  },
-  boxSearch: {
-    width: '100%'
-  },
-  searchInput: {
-    height: '60px',
-    paddingLeft: '40px',
-    width: '80%',
-    fontSize: '18px',
-    backgroundColor: '#EFEFEF',
-    marginTop: '10px'
-  },
-  decoration: {
-    position: 'relative'
-  },
-  bgVector: {
-    height: '300px',
-    marginLeft: '30px',
-    width: '350px'
-  },
-  vegetable: {
-    position: 'absolute',
-    left: '20px',
-    top: '-200px',
-    height: '500px',
-    width: 'auto'
-  },
-  foodOne: {
-    position: 'absolute',
-    left: '20px',
-    top: '-100px',
-    height: '500px',
-    width: 'auto'
-  },
-  boxPopular: {
-    backgroundColor: COLORS.primryColor,
-    marginTop: '100px'
-  },
-  mtMedium: {
-    marginTop: '20px'
-  },
-  titlePopular: {
-    marginTop: '40px',
-    marginLeft: '50px',
-    color: '#2E266F',
-    borderLeft: `#EFC81A solid 10px`,
-    paddingLeft: '20px'
-  },
-  imagePopularContainer: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: '15px'
-  },
-  containerNewRecipe: {
-    position: 'relative'
-  },
-  bgObject: {
-    width: '350px',
-    height: '450px',
-    marginLeft: '-12px',
-    backgroundColor: COLORS.secondaryColor
-  },
-  boxCard: {
-    position: 'absolute',
-    top: '60px',
-    left: '100px'
-  },
-  boxAboutRecipe: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'column'
-  },
-  aboutTitle: {
-    color: '#3F3A3A',
-    width: '400px',
-    fontWeight: 'bold'
-  },
-  textAbout: {
-    color: '#3F3A3A',
-    width: '370px',
-    marginTop: '20px'
-  },
-  line: {
-    borderBottom: 'solid 2px #6F6A40',
-    width: '100px',
-    marginTop: '15px'
-  },
-  boxOfCard: {
-    marginTop: '30px',
-    marginBottom: '100px'
-  },
-  mbMedium: {
-    marginBottom: '100px'
-  },
-
   // buttonPost: {
   //   height: '30px',
 
@@ -300,6 +123,49 @@ const styles = {
   bgVidio: {
     backgroundColor: '#efc81a',
     height: '120vh'
+  },
+
+  // Home
+  bgDecoration: {
+    height: '100vh',
+    backgroundColor: '#efc81a'
+  },
+
+  containerNewRecipe: {
+    position: 'relative'
+  },
+
+  boxPopular: {
+    backgroundColor: '#fff',
+    marginTop: '80px'
+  },
+
+  boxLatest: {
+    backgroundColor: '#fff',
+    marginTop: '120px'
+  },
+
+  imagePopularContainer: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: '25px'
+  },
+
+  mtMedium: {
+    marginTop: '20px'
+  },
+
+  boxAboutRecipe: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'column'
+  },
+
+  boxOfCard: {
+    marginTop: '30px',
+    marginBottom: '100px'
   }
 };
 
